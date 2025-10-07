@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Elite Games</title>
+  <link rel="stylesheet" href="../css/register_login.css">
+  <link rel="stylesheet" href="../css/header_footer.css">
+  <!-- Tipografía Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="main-header">
+    <!-- Lado izquierdo -->
+    <div class="header-left">
+      <!-- Menú Hamburguesa -->
+      <div class="menu-icon">
+        <img src="../images/Menu.png" alt="Menú">
+      </div>
+      <!-- Logo -->
+      <a href="loading.html"><img src="../images/LogoHeader.png" alt="EliteGames" class="logo-header"></a>
+
+    </div>
+
+    <!-- Lado derecho -->
+    <div class="header-right">
+      <!-- Usuario -->
+      <div class="user-icon">
+        <img src="../images/Usuario.png" alt="Usuario">
+      </div>
+    </div>
+  </header>
+
+    
+<!-- ===== MENÚ IZQUIERDO ===== -->
+<nav id="sideMenu" class="side-menu left">
+  <div class="menu-section">
+    <h2>General</h2>
+    <ul>
+      <li>
+        <img src="../images/Home.png" alt="Home">
+        <span>Inicio</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="menu-section">
+    <h2>Categorías</h2>
+    <ul>
+      <li><img src="../images/Estrategia.png" alt="Estrategia"><span>Estrategia</span></li>
+      <li><img src="../images/Accion.png" alt="Acción"><span>Acción</span></li>
+      <li><img src="../images/Terror.png" alt="Terror"><span>Terror</span></li>
+      <li><img src="../images/Aventura.png" alt="Aventura"><span>Aventura</span></li>
+      <li><img src="../images/Deportes.png" alt="Deportes"><span>Deportes</span></li>
+      <li><img src="../images/Rol.png" alt="Juegos de Rol"><span>Juegos de Rol</span></li>
+      <li><img src="../images/Fantasia.png" alt="Fantasía"><span>Fantasía</span></li>
+      <li><img src="../images/Carreras.png" alt="Carreras"><span>Carreras</span></li>
+      <li><img src="../images/Sigilo.png" alt="Sigilo"><span>Sigilo</span></li>
+      <li><img src="../images/Peleas.png" alt="Peleas"><span>Peleas</span></li>
+      <li><img src="../images/Rompecabezas.png" alt="Rompecabezas"><span>Rompecabezas</span></li>
+      <li><img src="../images/Supervivencia.png" alt="Supervivencia"><span>Supervivencia</span></li>
+      <li><img src="../images/Cooperativo.png" alt="Cooperativo"><span>Cooperativo</span></li>
+      <li><img src="../images/Plataformas.png" alt="Plataformas"><span>Plataformas</span></li>
+      <li><img src="../images/FPS.png" alt="FPS"><span>FPS</span></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Fondo oscuro al abrir menú -->
+<div id="overlay"></div>
+
+
+    <form class="login-container" id="loginForm">
+        <h1 class="login-title">Ingresar</h1>
+        <div class="login-box">
+            <!-- Campo Mail -->
+            <div class="input-wrapper">
+              <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Minombre@gmail.com" required>
+            </div>
+
+            <!-- Campo Contraseña -->
+            <div class="input-wrapper password-field">
+              <label for="password">Contraseña</label>
+                <input type="password" id="password" placeholder="***">
+                <img src="../images/Ojito.png" alt="Mostrar contraseña" class="eye-icon" data-target="password">
+            </div>
+
+            <!-- Botones Google / Facebook -->
+            <div class="social-buttons" id="social-buttons">
+                <a class="social-btn google-btn" href="loading.html">
+                <img src="../images/LogoGoogleFinal.png" alt="Google" class="google">
+                Continuar con Google
+                </a>
+                <a class="social-btn facebook-btn" href="loading.html">
+                <img src="../images/LogoFacebookFinal.png" alt="Facebook" class="facebook">
+                Continuar con Facebook
+                </a>
+            </div>
+
+            <!-- Botón Iniciar Sesión -->
+            <button class="login-btn" id="login-button">INICIAR SESIÓN</button>
+            <div class="hidden" id="success-message">
+              <img src="../images/check.png" alt="check" class="check">
+            </div>
+        </div>
+    </form>
+
+
+
+
+  <footer class="fat-footer">
+    <div class="footer-container">
+
+      <!-- Columna 1 -->
+      <div class="footer-column col-1">
+        <img src="../images/LogoFooter.png" alt="EliteGames" class="logo-footer">
+        <p class="follow">Seguinos:</p>
+        <div class="social-icons">
+          <img src="../images/twitter.png" alt="Twitter">
+          <img src="../images/facebook.png" alt="Facebook">
+          <img src="../images/linkedin.png" alt="LinkedIn">
+          <img src="../images/twitch.png" alt="Twitch">
+          <img src="../images/youtube.png" alt="YouTube">
+          <img src="../images/instagram.png" alt="Instagram">
+        </div>
+      </div>
+
+      <!-- Columna 2 -->
+      <div class="footer-column">
+        <h2>Sobre</h2>
+        <ul>
+          <li>Empresa</li>
+          <li>Mercado Digital</li>
+          <li>Seguridad</li>
+          <li>Contacto</li>
+        </ul>
+      </div>
+
+      <!-- Columna 3 -->
+      <div class="footer-column">
+        <h2>Para Compradores</h2>
+        <ul>
+          <li>Asistencia al Comprador</li>
+          <li>Como Comprar</li>
+          <li>Metodos de Pago</li>
+          <li>Noticias Gaming</li>
+          <li>Gana con Elite Games</li>
+        </ul>
+      </div>
+
+      <!-- Columna 4 -->
+      <div class="footer-column">
+        <h2>Asistencia</h2>
+        <ul>
+          <li>Terminos y condiciones</li>
+          <li>Politica de privacidad y cookies</li>
+          <li>Ley de Servicios Digitales</li>
+          <li>Politica de devoluciones</li>
+        </ul>
+      </div>
+
+      <!-- Columna 5 -->
+      <div class="footer-column col-5">
+        <h2>Prensa</h2>
+        <ul>
+          <li>Elite Games News - gaming y tendencias</li>
+          <li>Elite Games Insights - empresa y tecnologias</li>
+          <li>Comunicados de prensa</li>
+          <li>Colaboracion prensa</li>
+          <li>Web Corporativa</li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="../js/SuccesLogin.js"></script>
+  <script src="../js/togglePassword.js"></script>
+  <script src="../js/menu.js"></script>
+</body>
+</html>
