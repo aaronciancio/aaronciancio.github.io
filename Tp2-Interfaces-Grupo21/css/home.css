@@ -1,0 +1,496 @@
+
+/*BODY*/
+
+/* Cards */
+
+.game-card {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex: 0 0 220px;
+  flex-direction: column;
+  align-items: flex-end;
+  cursor: pointer;
+}
+
+a.game-card {
+  text-decoration: none;
+}
+
+.card-image-container {
+  width: 100%;
+  height: 145px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px 10px 0 10px;
+}
+
+.card-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px 10px 0 10px;
+  border: 2px solid #FFFFFF;
+  box-sizing: border-box;
+}
+
+.game-tag {
+  right: 0;
+  top: 155px;
+  width: 75px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 0 0 10px 10px;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.game-card-paid .game-tag {
+  background: #8C1007;
+  color: #FFFFFF;
+}
+
+.game-card-free .game-tag {
+  background: #FFEB3B;
+  color: #0E1116;
+}
+
+.game-card-paid:hover .card-image-container {
+  box-shadow: 0 0 20px #B71C1C;
+}
+.game-card-paid:hover .card-image-container img {
+  border: 2px solid #8C1007;
+}
+.game-card-paid:hover .game-tag {
+  box-shadow: 0 0 20px #B71C1C;
+  background-color: #B71C1C;
+}
+
+.game-card-free:hover .card-image-container {
+  box-shadow: 0 0 20px #FFA726;
+}
+.game-card-free:hover .card-image-container img {
+  border: 2px solid #FFA726;
+}
+.game-card-free:hover .game-tag {
+  box-shadow: 0 0 20px #FFA726;
+}
+
+/* Carrusel principal */
+
+.main-category {
+  font-size: 24px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  position: absolute;
+  top: 20px;
+}
+
+.main-carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+
+.main-carousel {
+  display: flex;
+  gap: 250px;
+  padding: 11% 7.5% 11% 7.5%;
+  justify-content: flex-start;
+  align-items: center;
+  transition: transform 0.3s;
+}
+
+.main-carousel-viewport {
+  width: 72%;
+  margin: 0 auto;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  flex-direction: column;
+  scrollbar-width: none;  /* Oculta la barra de scroll en Firefox*/
+  -ms-overflow-style: none; /* Oculta la barra de scroll en IE y Edge*/
+}
+
+/* Oculta la barra de scroll en Chrome, Safari y Opera*/
+.main-carousel-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.main-carousel .game-card {
+  scale: 1.5;
+}
+
+.main-carousel .game-card.centered {
+  transition: scale 0.3s;
+  scale: 2;
+  z-index: 2;
+}
+
+.main-carousel .game-card:not(.centered) {
+  transition: scale 0.3s;
+  scale: 1.5;
+  z-index: 1;
+}
+
+.main-carousel .game-card.centered.no-transition {
+  transition: none;
+}
+
+.main-carousel-btn {
+  width: 2%;
+  height: 35px;
+  background: #EEEEEE;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s;
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.main-carousel-container .carousel-btn.left {
+  position: relative;
+  left: 10vw;
+}
+
+.main-carousel-container .carousel-btn.right {
+  position: relative;
+  right: 10vw;
+}
+
+.main-carousel-btn:hover {
+  background: #888888;
+}
+
+/* Carrusel común */
+
+.category {
+  font-size: 24px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  position: absolute;
+  top: -30px;
+}
+
+.carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 30px;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.carousel {
+  display: flex;
+  gap: 45px;
+  padding: 20px 0;
+  justify-content: flex-start;
+  align-items: center;
+  transition: transform 0.3s;
+}
+
+.carousel-viewport {
+  width: 80.5%;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Oculta la barra de scroll en Firefox*/
+  -ms-overflow-style: none; /* Oculta la barra de scroll en IE y Edge*/
+}
+
+/* Oculta la barra de scroll en Chrome, Safari y Opera*/
+.carousel-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+/* Animacion carrusel común*/
+
+.carousel .game-card {
+  transition: transform 0.5s ease;
+  transform: rotateY(0deg);
+  transform-origin: center center;
+}
+
+.carousel .game-card.scrolling-right {
+  transition: transform 0.5s ease-out;
+  transform: perspective(600px) rotateY(-15deg);
+}
+
+.carousel .game-card.scrolling-left {
+  transition: transform 0.5s ease-out;
+  transform: perspective(600px) rotateY(15deg);
+}
+
+/* Botones Carrusel*/
+
+.carousel-btn {
+  width: 35px;
+  height: 35px;
+  background: #EEEEEE;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s;
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-btn.left {
+  position: relative;
+  left: 5vw;
+}
+
+.carousel-btn.right {
+  position: relative;
+  right: 5vw;
+}
+
+.carousel-btn:hover {
+  background: #888888;
+}
+
+/* Iconos de los botones de scroll*/
+
+.arrow {
+  display: block;
+  width: 22px;
+  height: 22px;
+  position: relative;
+}
+
+.arrow-right::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 5px;
+  width: 16px;
+  height: 3px;
+  background: #0E1116;
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
+.arrow-right::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 15px;
+  width: 16px;
+  height: 3px;
+  background: #0E1116;
+  border-radius: 2px;
+  transform: rotate(-45deg);
+}
+
+.arrow-left::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 5px;
+  width: 16px;
+  height: 3px;
+  background: #0E1116;
+  border-radius: 2px;
+  transform: rotate(-45deg);
+}
+.arrow-left::after {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 15px;
+  width: 16px;
+  height: 3px;
+  background: #0E1116;
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
+
+/* Ofertas */
+
+.ofertas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ofertas h2 {
+  font-size: 24px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 60px;
+  align-self: flex-start;
+  padding-left: 11vw;
+}
+
+.ofertas-conjunto {
+  display: flex;
+  gap: 9vw;
+  margin-top: 0;
+  margin-bottom: 130px;
+}
+
+.ofertas .game-card {
+  scale: 1.5;
+}
+
+/* Diseños responsive */
+
+@media screen and (max-width: 1680px) {
+  .main-carousel {
+    margin-top: 4.5vh;
+    margin-bottom: 3vh;
+  }
+
+  .ofertas-conjunto {
+    gap: 6vw;
+    margin-bottom: 100px;
+  }
+
+  .ofertas .game-card {
+    scale: 1.25;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .main-carousel {
+    margin-top: 7.5vh;
+    margin-bottom: 5vh;
+  }
+
+  .ofertas-conjunto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding-left: 7.5vw;
+    margin-bottom: 5vh;
+  }
+
+  .ofertas .game-card {
+    width: 80%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .main-category {
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+    position: absolute;
+    top: 20px;
+  }
+
+  .main-carousel-container {
+    margin-bottom: -50px;
+  }
+
+  .main-carousel {
+    gap: 60px;
+  }
+
+  .main-carousel-viewport {
+    width: 95%;
+    margin-top: -3vh;
+    margin-bottom: 2vh;
+  }
+
+  .main-carousel .game-card.centered {
+    scale: 1.25;
+  }
+
+  .main-carousel .game-card:not(.centered) {
+    scale: 1;
+  }
+
+  .category {
+  top: -10px;
+  } 
+
+  .carousel {
+    scale: 0.7;
+    gap: 25px;
+    padding: 0;
+    margin-right: 50vw;
+    margin-bottom: 2vh;
+  }
+
+  .carousel-viewport {
+    width: 95%;
+    margin-bottom: -60px;
+  }
+  
+  .carousel-btn {
+    display: none;
+  }
+
+  .ofertas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1vh;
+    margin-bottom: 3vh;
+  }
+
+  .ofertas h2 {
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 10px;
+    padding-left: 2vw;
+  }
+
+  .ofertas-conjunto {
+    display: flex;
+    gap: 5vw;
+    margin-top: 0;
+    margin-bottom: 2.5vh;
+  }
+
+  .ofertas .game-card {
+    scale: 1.5;
+  }
+
+  .ofertas-conjunto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin-right: 2vw;
+    margin-left: -5vw;
+  }
+
+  .ofertas .game-card {
+    width: 100%;
+    height: auto;
+    scale: 1
+  }
+}
