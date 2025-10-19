@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blocka</title>
+    <link rel="stylesheet" href="../css/blocka.css">
+    <link rel="stylesheet" href="../css/header_footer.css">
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="main-header">
+    <!-- Lado izquierdo -->
+    <div class="header-left">
+      <!-- Menú Hamburguesa -->
+      <div class="menu-icon">
+        <img src="../images/Menu.png" alt="Menú">
+      </div>
+      <!-- Logo -->
+      <img src="../images/LogoHeader.png" alt="EliteGames" class="logo-header">
+
+    </div>
+
+    <!-- Buscador -->
+    <div class="search-bar">
+      <img src="../images/Lupa.png" alt="Buscar" class="search-icon">
+      <input type="text" placeholder="Buscar">
+    </div>
+
+    <!-- Lado derecho -->
+    <div class="header-right">
+        <!-- Carrito -->
+      <div class="cart-icon">
+        <img src="../images/Carrito 3.png" alt="Carrito">
+      </div>
+      <!-- Usuario -->
+      <div class="user-icon">
+        <img src="../images/Usuario.png" alt="Usuario">
+      </div>
+    </div>
+  </header>
+  
+<!-- ===== MENÚ IZQUIERDO ===== -->
+<nav id="sideMenu" class="side-menu left">
+  <div class="menu-section">
+    <h2>General</h2>
+    <ul>
+      <li>
+        <a href="loading.html">
+        <img src="../images/Home.png" alt="Home">
+        <span>Inicio</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="menu-section">
+    <h2>Categorías</h2>
+    <ul>
+      <li><img src="../images/Estrategia.png" alt="Estrategia"><span>Estrategia</span></li>
+      <li><img src="../images/Accion.png" alt="Acción"><span>Acción</span></li>
+      <li><img src="../images/Terror.png" alt="Terror"><span>Terror</span></li>
+      <li><img src="../images/Aventura.png" alt="Aventura"><span>Aventura</span></li>
+      <li><img src="../images/Deportes.png" alt="Deportes"><span>Deportes</span></li>
+      <li><img src="../images/Rol.png" alt="Juegos de Rol"><span>Juegos de Rol</span></li>
+      <li><img src="../images/Fantasia.png" alt="Fantasía"><span>Fantasía</span></li>
+      <li><img src="../images/Carreras.png" alt="Carreras"><span>Carreras</span></li>
+      <li><img src="../images/Sigilo.png" alt="Sigilo"><span>Sigilo</span></li>
+      <li><img src="../images/Peleas.png" alt="Peleas"><span>Peleas</span></li>
+      <li><img src="../images/Rompecabezas.png" alt="Rompecabezas"><span>Rompecabezas</span></li>
+      <li><img src="../images/Supervivencia.png" alt="Supervivencia"><span>Supervivencia</span></li>
+      <li><img src="../images/Cooperativo.png" alt="Cooperativo"><span>Cooperativo</span></li>
+      <li><img src="../images/Plataformas.png" alt="Plataformas"><span>Plataformas</span></li>
+      <li><img src="../images/FPS.png" alt="FPS"><span>FPS</span></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== MENÚ DERECHO ===== -->
+<nav id="userMenu" class="side-menu right">
+  <div class="menu-section">
+    <ul>
+      <li>
+        <img src="../images/Perfil.png" alt="Mi Perfil">
+        <span>Mi Perfil</span>
+      </li>
+      <li>
+        <img src="../images/Configuracion.png" alt="Configuración">
+        <span>Configuración</span>
+      </li>
+      <li>
+        <a href="register.html">
+          <img src="../images/CerrarSesion.png" alt="Cerrar Sesión">
+          <span>Cerrar Sesión</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Fondo oscuro al abrir menú -->
+<div id="overlay"></div>
+
+    <h1 class="game-title">Blocka Sinisters</h1>
+    <div class="main-game">
+      <!-- Imagen principal -->
+      <canvas width="1632" height="800" id="blocka"></canvas>
+      <!-- Barra inferior --> 
+      <div class="bar">
+          <div class="left-buttons">
+              <button class="up"><img class= "btn-icons" src="../images/Thumb Up.png" alt="Thumb Down">2.7M</button>
+              <button class="down"><img class= "btn-icons" src="../images/Thumb Down.png" alt="Thumb Down"> </button>
+              <button class="heart"><img class= "btn-icons" src="../images/Corazon.png" alt="Corazon"></button>
+          </div>
+          <div class="right-buttons">
+              <button class="btn-friends"><img class= "friends" src="../images/Friends.png">Invita a tus amigos</button>
+          </div> 
+      </div>
+      
+      <!-- Galería --> 
+      <div class="gallery"> 
+        <img src="../images_cards/Blocka/DoctorOctopus.jpg" alt="Doctor Octopus"> 
+        <img src="../images_cards/Blocka/Electro.webp" alt="Electro"> 
+        <img src="../images_cards/Blocka/GreenGoblin.jpeg" alt="Green Goblin"> 
+        <img src="../images_cards/Blocka/SiniestrosVideo.png" alt="6 Siniestros" class="video-thumb"> 
+        <img src="../images_cards/Blocka/Kraven.webp" alt="Kraven"> 
+        <img src="../images_cards/Blocka/Mysterio.png" alt="Mysterio"> 
+        <img src="../images_cards/Blocka/Vulture.jpg" alt="Vulture"> 
+      </div> 
+
+    <div class="game-instructions">
+      <div class="breadcrumb">Home &nbsp;&gt;&gt;&nbsp; Rompecabezas &nbsp;&gt;&gt;&nbsp; Blocka</div>
+
+      <h2 class="game-title">BLOCKA</h2>
+
+      <p class="game-description">¿Podrás descubrir la imagen oculta detrás de la Blocka?</p>
+
+      <p>
+        Blocka es un juego de rompecabezas visual para un solo jugador, donde el desafío consiste en recomponer una imagen desordenada.
+      </p>
+
+      <p>
+        Al iniciar el nivel, la imagen aparece dividida en cuatro partes, las cuales están rotadas aleatoriamente, y el objetivo del jugador es girar cada bloque hasta que las cuatro piezas encajen correctamente, revelando la imagen original.
+      </p>
+
+      <p>
+        Aunque su dinámica parece sencilla, el verdadero reto está en reconocer las partes de la imagen y pensar cada rotación con precisión. A medida que avances, los efectos visuales y filtros incrementarán la dificultad, poniendo a prueba tu percepción y paciencia.
+      </p>
+
+      <h3>Características del juego</h3>
+      <ul>
+        <li>Juego de lógica y observación para un solo jugador.</li>
+        <li>Objetivo: recomponer la imagen original rotando las cuatro subimágenes.</li>
+        <li>Mecánica simple: clic izquierdo o derecho para girar los bloques en sentidos opuestos.</li>
+        <li>Incluye temporizador que registra tu tiempo récord al completar el nivel.</li>
+        <li>Dificultad progresiva: las imágenes aparecen con filtros visuales que desaparecen al resolver el puzzle.</li>
+        <li>Interfaz limpia y minimalista, centrada en la imagen y el desafío visual.</li>
+      </ul>
+
+      <h3>Instrucciones</h3>
+      <ol>
+        <li>Presiona “Comenzar” para iniciar el nivel y activar el temporizador.</li>
+        <li>Observa la imagen dividida en cuatro partes (blocka).</li>
+        <li>Haz clic izquierdo en una subimagen para girarla a la izquierda (antihorario).</li>
+        <li>Haz clic derecho para girarla a la derecha (horario).</li>
+        <li>Cuando las cuatro piezas estén correctamente orientadas, la imagen volverá a su forma original y el temporizador se detendrá.</li>
+        <li>Podrás ver tu tiempo récord, volver al Menú Principal o continuar al siguiente nivel.</li>
+      </ol>
+
+      <h3>Controles</h3>
+      <ol>
+        <li>Clic izquierdo: gira la subimagen 90° hacia la izquierda.</li>
+        <li>Clic derecho: gira la subimagen 90° hacia la derecha.</li>
+      </ol>
+
+      <div class="peg-redes">
+        <p>
+        Estoy jugando al Blocka  ¿Te animás a ganarme? Probalo acá
+        </p>
+        <div class="peg-redes-icons">
+          <img src="../images/twitter.png" alt="">
+          <img src="../images/facebook.png" alt="">
+          <img src="../images/linkedin.png" alt="">
+          <img src="../images/instagram.png" alt="">
+          <img src="../images/mail.png" alt="">
+          <img src="../images/telegram.png" alt="">
+        </div>
+
+      </div>
+      
+    </div>
+
+    <div class="peg-last-section">
+      <div class="comments-section">
+        <h1>Comentarios</h1>
+        <div class="comments-container">
+          <!--Comentario de Usuario-->
+          <div class="user-comment">
+              <div>
+                <div class="user-icon">
+                  <img src="../images/Usuario.png" alt="Usuario">
+                </div>
+                <h3>Tú</h3>
+              </div>
+              <div class="input-comment">
+                <input type="email" id="email" placeholder="Escribe tu comentario">
+                <img src="../images/Enviar.png" alt="Boton Enviar" class="send-icon">
+              </div>
+          </div>
+
+          <hr>
+
+          <!--Columna de comentarios-->
+          <div class="others-comments">
+            <div class="comment">
+              <div class="comment-header">
+                <div class="left">
+                  <div class="user-icon">
+                    <img src="../images/Usuario.png" alt="Usuario">
+                  </div>
+                  <h3>FanBlocka#7</h3>
+                </div>
+
+                <div class="right">
+                  <p>300</p>
+                  <img src="../images/Thumb Up.png" alt="Pulgar Arriba">
+                </div>
+              </div>
+              <p>Este juego me revento la cabeza !!!</p>
+            </div>
+
+            <div class="comment">
+              <div class="comment-header">
+                <div class="left">
+                  <div class="user-icon">
+                    <img src="../images/Usuario.png" alt="Usuario">
+                  </div>
+                  <h3>RPG_Player</h3>
+                </div>
+
+                <div class="right">
+                  <p>40</p>
+                  <img src="../images/Thumb Up.png" alt="Pulgar Arriba">
+                </div>
+              </div>
+              <p>Un juego aburrido, aguante los RPG</p>
+            </div>
+
+            <div class="comment">
+              <div class="comment-header">
+                <div class="left">
+                  <div class="user-icon">
+                    <img src="../images/Usuario.png" alt="Usuario">
+                  </div>
+                  <h3>Amanda_Juegos</h3>
+                </div>
+
+                <div class="right">
+                  <p>350</p>
+                  <img src="../images/Thumb Up.png" alt="Pulgar Arriba">
+                </div>
+              </div>
+              <p>Este juego esta increible, super desafiante !!</p>
+            </div>
+
+            <div class="comment">
+              <div class="comment-header">
+                <div class="left">
+                  <div class="user-icon">
+                    <img src="../images/Usuario.png" alt="Usuario">
+                  </div>
+                  <h3>Agustina__</h3>
+                </div>
+
+                <div class="right">
+                  <p>90</p>
+                  <img src="../images/Thumb Up.png" alt="Pulgar Arriba">
+                </div>
+              </div>
+              <p>Hay juegos de rompecabezas mejores</p>
+            </div>
+
+            <div class="comment">
+              <div class="comment-header">
+                <div class="left">
+                  <div class="user-icon">
+                    <img src="../images/Usuario.png" alt="Usuario">
+                  </div>
+                  <h3>BernardoX_X</h3>
+                </div>
+
+                <div class="right">
+                  <p>550</p>
+                  <img src="../images/Thumb Up.png" alt="Pulgar Arriba">
+                </div>
+              </div>
+              <p>SUPER EMOCIONANTE</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="peg-cards">
+        <h1>Porque Jugaste: Blocka</h1>
+        <div class="peg-cards-container">
+          <div class="peg-cards-columns">
+            
+            <div class="game-card game-card-free">
+              <div class="card-image-container">
+                <img src=".././images_cards/Juegos de Rompecabezas/Braid.avif" alt="Juego" />
+              </div>
+              <div class="game-tag">Jugar</div>
+            </div>
+
+            <div class="game-card game-card-free">
+              <div class="card-image-container">
+                <img src=".././images_cards/Juegos de Rompecabezas/CandyCrush.jpeg" alt="Juego" />
+              </div>
+              <div class="game-tag">Jugar</div>
+            </div>
+
+            <div class="game-card game-card-paid">
+              <div class="card-image-container">
+                <img src=".././images_cards/Juegos de Rompecabezas/Human.jpeg" alt="Juego" />
+              </div>
+              <div class="game-tag">$15.00</div>
+            </div>
+
+            <div class="game-card game-card-free">
+              <div class="card-image-container">
+                <img src=".././images_cards/Juegos de Rompecabezas/LittleInferno.jpeg" alt="Juego" />
+              </div>
+              <div class="game-tag">Jugar</div>
+            </div>
+          </div>
+          <div class="peg-cards-columns">
+            
+            <div class="game-card game-card-paid">
+              <div class="card-image-container">
+                <img src=".././images_cards/Juegos de Rompecabezas/Machinarium.avif" alt="Juego" />
+              </div>
+              <div class="game-tag">$17.00</div>
+            </div>
+
+            <div class="game-card game-card-paid">
+              <div class="card-image-container">
+                <img src=".././images_cards/Juegos de Rompecabezas/MonkeyIsland.jpeg" alt="Juego" />
+              </div>
+              <div class="game-tag">$20.00</div>
+            </div>
+
+            <div class="game-card game-card-paid">
+              <div class="card-image-container">
+                <img src=".././images_cards/Juegos de Rompecabezas/Portal2.avif" alt="Juego" />
+              </div>
+              <div class="game-tag">$17.50</div>
+            </div>
+
+            <div class="game-card game-card-free">
+              <div class="card-image-container">
+                <img src=".././images_cards/Juegos de Rompecabezas/World.jpeg" alt="Juego" />
+              </div>
+              <div class="game-tag">Jugar</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+    
+  <footer class="fat-footer">
+    <div class="footer-container">
+
+      <!-- Columna 1 -->
+      <div class="footer-column col-1">
+        <img src="../images/LogoFooter.png" alt="EliteGames" class="logo-footer">
+        <p class="follow">Seguinos:</p>
+        <div class="social-icons">
+          <img src="../images/twitter.png" alt="Twitter">
+          <img src="../images/facebook.png" alt="Facebook">
+          <img src="../images/linkedin.png" alt="LinkedIn">
+          <img src="../images/twitch.png" alt="Twitch">
+          <img src="../images/youtube.png" alt="YouTube">
+          <img src="../images/instagram.png" alt="Instagram">
+        </div>
+      </div>
+
+      <!-- Columna 2 -->
+      <div class="footer-column">
+        <h2>Sobre</h2>
+        <ul>
+          <li>Empresa</li>
+          <li>Mercado Digital</li>
+          <li>Seguridad</li>
+          <li>Contacto</li>
+        </ul>
+      </div>
+
+      <!-- Columna 3 -->
+      <div class="footer-column">
+        <h2>Para Compradores</h2>
+        <ul>
+          <li>Asistencia al Comprador</li>
+          <li>Como Comprar</li>
+          <li>Metodos de Pago</li>
+          <li>Noticias Gaming</li>
+          <li>Gana con Elite Games</li>
+        </ul>
+      </div>
+
+      <!-- Columna 4 -->
+      <div class="footer-column">
+        <h2>Asistencia</h2>
+        <ul>
+          <li>Terminos y condiciones</li>
+          <li>Politica de privacidad y cookies</li>
+          <li>Ley de Servicios Digitales</li>
+          <li>Politica de devoluciones</li>
+        </ul>
+      </div>
+
+      <!-- Columna 5 -->
+      <div class="footer-column col-5">
+        <h2>Prensa</h2>
+        <ul>
+          <li>Elite Games News - gaming y tendencias</li>
+          <li>Elite Games Insights - empresa y tecnologias</li>
+          <li>Comunicados de prensa</li>
+          <li>Colaboracion prensa</li>
+          <li>Web Corporativa</li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="../js/menu.js"></script>
+  <script src="../js/Blocka.js"></script>
+</body>
+</html>

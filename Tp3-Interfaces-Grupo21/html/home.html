@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elite Games</title>
+  <link rel="stylesheet" href="../css/home.css">
+  <link rel="stylesheet" href="../css/header_footer.css">
+</head>
+<body>
+  <header class="main-header">
+    <!-- Lado izquierdo -->
+    <div class="header-left">
+      <!-- Menú Hamburguesa -->
+      <div class="menu-icon">
+        <img src="../images/Menu.png" alt="Menú">
+      </div>
+      <!-- Logo -->
+      <img src="../images/LogoHeader.png" alt="EliteGames" class="logo-header">
+
+    </div>
+
+    <!-- Buscador -->
+    <div class="search-bar">
+      <img src="../images/Lupa.png" alt="Buscar" class="search-icon">
+      <input type="text" placeholder="Buscar">
+    </div>
+
+    <!-- Lado derecho -->
+    <div class="header-right">
+        <!-- Carrito -->
+      <div class="cart-icon">
+        <img src="../images/Carrito 3.png" alt="Carrito">
+      </div>
+      <!-- Usuario -->
+      <div class="user-icon">
+        <img src="../images/Usuario.png" alt="Usuario">
+      </div>
+    </div>
+  </header>
+
+<!-- ===== MENÚ IZQUIERDO ===== -->
+<nav id="sideMenu" class="side-menu left">
+  <div class="menu-section">
+    <h2>General</h2>
+    <ul>
+      <li>
+        <a href="home.html">
+        <img src="../images/Home.png" alt="Home">
+        <span>Inicio</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="menu-section">
+    <h2>Categorías</h2>
+    <ul>
+      <li><img src="../images/Estrategia.png" alt="Estrategia"><span>Estrategia</span></li>
+      <li><img src="../images/Accion.png" alt="Acción"><span>Acción</span></li>
+      <li><img src="../images/Terror.png" alt="Terror"><span>Terror</span></li>
+      <li><img src="../images/Aventura.png" alt="Aventura"><span>Aventura</span></li>
+      <li><img src="../images/Deportes.png" alt="Deportes"><span>Deportes</span></li>
+      <li><img src="../images/Rol.png" alt="Juegos de Rol"><span>Juegos de Rol</span></li>
+      <li><img src="../images/Fantasia.png" alt="Fantasía"><span>Fantasía</span></li>
+      <li><img src="../images/Carreras.png" alt="Carreras"><span>Carreras</span></li>
+      <li><img src="../images/Sigilo.png" alt="Sigilo"><span>Sigilo</span></li>
+      <li><img src="../images/Peleas.png" alt="Peleas"><span>Peleas</span></li>
+      <li><img src="../images/Rompecabezas.png" alt="Rompecabezas"><span>Rompecabezas</span></li>
+      <li><img src="../images/Supervivencia.png" alt="Supervivencia"><span>Supervivencia</span></li>
+      <li><img src="../images/Cooperativo.png" alt="Cooperativo"><span>Cooperativo</span></li>
+      <li><img src="../images/Plataformas.png" alt="Plataformas"><span>Plataformas</span></li>
+      <li><img src="../images/FPS.png" alt="FPS"><span>FPS</span></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== MENÚ DERECHO ===== -->
+<nav id="userMenu" class="side-menu right">
+  <div class="menu-section">
+    <ul>
+      <li>
+        <img src="../images/Perfil.png" alt="Mi Perfil">
+        <span>Mi Perfil</span>
+      </li>
+      <li>
+        <img src="../images/Configuracion.png" alt="Configuración">
+        <span>Configuración</span>
+      </li>
+      <li>
+        <a href="register.html">
+          <img src="../images/CerrarSesion.png" alt="Cerrar Sesión">
+          <span>Cerrar Sesión</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Fondo oscuro al abrir menú -->
+<div id="overlay"></div>
+
+  <!-- Carrusel principal -->
+  <div class="main-carousel-container">
+  <button class="carousel-btn left">
+      <span class="arrow arrow-left"></span>
+    </button>
+    <div class="main-carousel-viewport">
+      <h2 class="main-category">Recomendados Para Vos</h2>
+      <div class="main-carousel">
+
+        <!-- Card principal -->
+        <a class="game-card main-game-card game-card-free" href="blocka.html">
+          <div class="card-image-container">
+            <img src="../images_cards/Blocka/BlockaSinisters.png" alt="Blocka Siniestros" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </a>
+        
+        <a class="game-card main-game-card game-card-free" href="pegsolitaire.html">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Recomendados/2.jpg" alt="Peg Solitaire" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </a>
+
+        <div class="game-card main-game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Recomendados/3.webp" alt="FC26" />
+          </div>
+          <div class="game-tag">$59.99</div>
+        </div>
+
+        <div class="game-card main-game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Recomendados/4.jpeg" alt="Nioh 2" />
+          </div>
+          <div class="game-tag">$49.99</div>
+        </div>
+
+        <div class="game-card main-game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Recomendados/5.jpg" alt="Grand Theft Auto 6" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+
+        <div class="game-card main-game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Recomendados/6.jpg" alt="Battlefield 6" />
+          </div>
+          <div class="game-tag">$69.99</div>
+        </div>
+        
+      </div>
+    </div>
+  <button class="carousel-btn right">
+      <span class="arrow arrow-right"></span>
+    </button>
+  </div>
+
+  <!-- Carrusel -->
+  <div class="carousel-container">
+    <button class="carousel-btn left">
+      <span class="arrow arrow-left"></span>
+    </button>
+    <div class="carousel-viewport" id="animated-carousel">
+      <h2 class="category">Jugados reciéntemente</h2>
+      <div class="carousel">
+
+        <!-- Card -->
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Recientes/1.jpg" alt="Warhammer 40,000: Dawn of War 2" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Recientes/2.jpg" alt="Company of Heroes 2" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+
+          <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Recientes/3.jpg" alt="Counter-Strike 2" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Recientes/4.jpg" alt="Call of Duty: Warzone" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+          <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Recientes/5.jpeg" alt="Rematch" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Recientes/6.png" alt="Dark Souls 3" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+          <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Recientes/7.png" alt="Dragon Ball: Sparking Zero" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Recientes/8.png" alt="FragPunk" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+          <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Recientes/9.jpg" alt="Delta Force" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Recientes/10.png" alt="Grand Theft Auto 5" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+          <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Recientes/11.png" alt="Dune: Awakening" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Recientes/12.png" alt="Cyberpunk 2077" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+
+      </div>
+    </div>
+  <button class="carousel-btn right">
+      <span class="arrow arrow-right"></span>
+    </button>
+  </div>
+
+  <div class="carousel-container">
+    <button class="carousel-btn left">
+      <span class="arrow arrow-left"></span>
+    </button>
+    <div class="carousel-viewport">
+      <h2 class="category">Destacados</h2>
+      <div class="carousel">
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Destacados/1.jpg" alt="Baldur's Gate 3" />
+          </div>
+          <div class="game-tag">$59.99</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Destacados/2.jpg" alt="Lies of P" />
+          </div>
+          <div class="game-tag">$29.99</div>
+        </div>
+
+          <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Destacados/3.jpg" alt="Elden Ring" />
+          </div>
+          <div class="game-tag">$49.99</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Destacados/4.jpg" alt="League of Legends" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+          <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Destacados/5.jpg" alt="Call of Duty: Black Ops" />
+          </div>
+          <div class="game-tag">$49.99</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Destacados/6.jpg" alt="No Rest for the Wicked" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+          <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Destacados/7.jpg" alt="Marvel Rivals" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Destacados/8.jpg" alt="Rust" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+          <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Destacados/9.jpg" alt="PlayerUnknown's Battlegrounds" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Destacados/10.jpg" alt="Helldivers 2" />
+          </div>
+          <div class="game-tag">$39.99</div>
+        </div>
+        
+          <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Destacados/11.jpg" alt="Borderlands 4" />
+          </div>
+          <div class="game-tag">$69.99</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Destacados/12.jpg" alt="Dota 2" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+
+      </div>
+    </div>
+    <button class="carousel-btn right">
+      <span class="arrow arrow-right"></span>
+    </button>
+  </div>
+  
+  <div class="carousel-container">
+    <button class="carousel-btn left">
+      <span class="arrow arrow-left"></span>
+    </button>
+    <div class="carousel-viewport">
+      <h2 class="category">Juegos Nuevos</h2>
+      <div class="carousel">
+
+          <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Nuevos/1.jpg" alt="Hell is Us" />
+          </div>
+          <div class="game-tag">$29.99</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Nuevos/2.jpg" alt="Black Myth: Wukong" />
+          </div>
+          <div class="game-tag">$49.99</div>
+        </div>
+        
+          <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Nuevos/3.jpg" alt="Wuchang: Fallen Feathers" />
+          </div>
+          <div class="game-tag">$29.99</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Nuevos/4.jpg" alt="The First Berserker: Khazan" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+          <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Nuevos/5.jpg" alt="Path of Exile 2" />
+          </div>
+          <div class="game-tag">$59.99</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Nuevos/6.jpg" alt="Ghost of Yotei" />
+          </div>
+          <div class="game-tag">$69.99</div>
+        </div>
+        
+          <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Nuevos/7.jpg" alt="Dirtzone: Off Road is Life" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Nuevos/8.jpg" alt="Dying Light: The Beast" />
+          </div>
+          <div class="game-tag">$49.99</div>
+        </div>
+        
+          <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Nuevos/9.jpg" alt="Arena Breakout: Infinite" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Nuevos/10.jpg" alt="Kingmakers" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Nuevos/11.jpg" alt="Red Rust: Pioneers" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Nuevos/12.jpg" alt="Long Drive North" />
+          </div>
+          <div class="game-tag">$19.99</div>
+        </div>
+
+      </div>
+    </div>
+    <button class="carousel-btn right">
+      <span class="arrow arrow-right"></span>
+    </button>
+  </div>
+
+<div class="ofertas">
+  <h2>ELITE GAMES Ofertas</h2>
+  <div class="ofertas-conjunto">
+    
+    <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Ofertas/1.jpg" alt="Terraria" />
+          </div>
+          <div class="game-tag">$4.99</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Ofertas/2.jpeg" alt="God of War: Ragnarok" />
+          </div>
+          <div class="game-tag">$15.99</div>
+        </div>
+
+          <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Ofertas/3.jpeg" alt="Metal Gear Solid 5: The Phantom Pain" />
+          </div>
+          <div class="game-tag">$9.99</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Ofertas/4.jpg" alt="Batman: Arkham Knight" />
+          </div>
+          <div class="game-tag">$11.99</div>
+        </div>
+
+  </div>
+  <div class="ofertas-conjunto">
+    
+    <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Ofertas/5.png" alt="Far Cry 3 Classic Edition" />
+          </div>
+          <div class="game-tag">$8.99</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Ofertas/6.png" alt="Assassin's Creed: Odyssey" />
+          </div>
+          <div class="game-tag">$13.99</div>
+        </div>
+
+          <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Ofertas/7.jpg" alt="Arma 3" />
+          </div>
+          <div class="game-tag">$5.99</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos Ofertas/8.png" alt="Dark Souls" />
+          </div>
+          <div class="game-tag">$9.99</div>
+        </div>
+
+  </div>
+</div>
+
+<div class="carousel-container">
+    <button class="carousel-btn left">
+      <span class="arrow arrow-left"></span>
+    </button>
+    <div class="carousel-viewport">
+      <h2 class="category">Estrategia</h2>
+      <div class="carousel">
+
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Estrategia/1.jpg" alt="Warhammer 40,000: Dawn of War 2" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Estrategia/2.jpg" alt="Command & Conquer: Red Alert 2" />
+          </div>
+          <div class="game-tag">$19.99</div>
+        </div>
+
+          <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Estrategia/3.jpg" alt="Company of Heroes 2" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Estrategia/4.jpg" alt="Warhammer 40,000: Dawn of War 3" />
+          </div>
+          <div class="game-tag">$39.99</div>
+        </div>
+        
+          <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Estrategia/5.jpg" alt="Warhammer 40,000: Dawn of War" />
+          </div>
+          <div class="game-tag">$39.99</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Estrategia/6.jpg" alt="Company of Heroes" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+          <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Estrategia/7.webp" alt="Age of Mythology" />
+          </div>
+          <div class="game-tag">$29.99</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Estrategia/8.avif" alt="Company of Heroes 3" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+          <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Estrategia/9.avif" alt="XCOM 2 Collection" />
+          </div>
+          <div class="game-tag">$9.99</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Estrategia/10.jpg" alt="XCOM: Enemy Unknown" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+          <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Estrategia/11.jpeg" alt="Warcraft 3: Reforged" />
+          </div>
+          <div class="game-tag">$14.99</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Estrategia/12.png" alt="Sid Meier's Civilization VI" />
+          </div>
+          <div class="game-tag">$59.99</div>
+        </div>
+
+      </div>
+    </div>
+  <button class="carousel-btn right">
+      <span class="arrow arrow-right"></span>
+    </button>
+  </div>
+
+  <div class="carousel-container">
+    <button class="carousel-btn left">
+      <span class="arrow arrow-left"></span>
+    </button>
+    <div class="carousel-viewport">
+      <h2 class="category">Acción</h2>
+      <div class="carousel">
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Accion/1.jpg" alt="Counter-Strike 2" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Accion/2.jpg" alt="Halo: The Master Chief Collection" />
+          </div>
+          <div class="game-tag">$49.99</div>
+        </div>
+
+          <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Accion/3.jpg" alt="Delta Force" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Accion/4.jpg" alt="Call of Duty: Warzone" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+          <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Accion/5.jpg" alt="BattleField 2042" />
+          </div>
+          <div class="game-tag">$39.99</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Accion/6.png" alt="Deus Ex: Mankind Divided" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+          <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Accion/7.jpg" alt="Dishonored" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Accion/8.jpg" alt="Mirror's Edge" />
+          </div>
+          <div class="game-tag">$9.99</div>
+        </div>
+        
+          <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Accion/9.jpg" alt="Warhammer Vermintide 2" />
+          </div>
+          <div class="game-tag">$10.00</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Accion/10.jpg" alt="Crysis Remastered" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+          <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Accion/11.jpg" alt="Sniper Elite 5 Complete Edition" />
+          </div>
+          <div class="game-tag">$19.99</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Accion/12.jpg" alt="Overwatch 2" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+
+      </div>
+    </div>
+    <button class="carousel-btn right">
+      <span class="arrow arrow-right"></span>
+    </button>
+  </div>
+  
+  <div class="carousel-container">
+    <button class="carousel-btn left">
+      <span class="arrow arrow-left"></span>
+    </button>
+    <div class="carousel-viewport">
+      <h2 class="category">Terror</h2>
+      <div class="carousel">
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Terror/1.jpg" alt="Residente Evil 4" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Terror/2.jpg" alt="Silent Hill 2" />
+          </div>
+          <div class="game-tag">$59.99</div>
+        </div>
+
+          <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Terror/3.jpg" alt="Dead Space" />
+          </div>
+          <div class="game-tag">$39.99</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Terror/4.jpg" alt="The Last of Us: Part 1" />
+          </div>
+          <div class="game-tag">$49.99</div>
+        </div>
+        
+          <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Terror/5.jpg" alt="Dead Island 2" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Terror/6.jpg" alt="Dead by Deadlight" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+          <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Terror/7.jpg" alt="Days Gone" />
+          </div>
+          <div class="game-tag">$10.00</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Terror/8.jpg" alt="The Outlast Trials" />
+          </div>
+          <div class="game-tag">$14.99</div>
+        </div>
+        
+          <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Terror/9.jpg" alt="Amnesia: The Dark Descent" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Terror/10.jpg" alt="Resident Evil 3" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+          <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Terror/11.jpg" alt="Alan Wake 2" />
+          </div>
+          <div class="game-tag">$49.99</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Terror/12.png" alt="SOMA" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+
+      </div>
+    </div>
+    <button class="carousel-btn right">
+      <span class="arrow arrow-right"></span>
+    </button>
+  </div>
+
+<div class="carousel-container">
+    <button class="carousel-btn left">
+      <span class="arrow arrow-left"></span>
+    </button>
+    <div class="carousel-viewport">
+      <h2 class="category">Aventura</h2>
+      <div class="carousel">
+
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Aventura/1.jpg" alt="Horizon: Zero Dawn" />
+          </div>
+          <div class="game-tag">$29.99</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Aventura/2.jpg" alt="Ori And The Blind Forest" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+
+          <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Aventura/3.jpg" alt="Red Dead Redemption 2" />
+          </div>
+          <div class="game-tag">$59.99</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Aventura/4.jpg" alt="Hollow Knight: Silksong" />
+          </div>
+          <div class="game-tag">$19.99</div>
+        </div>
+        
+          <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Aventura/5.jpg" alt="Rise of the Tomb Raider" />
+          </div>
+          <div class="game-tag">$19.99</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Aventura/6.jpg" alt="Minecraft" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+          <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Aventura/7.jpg" alt="Terraria" />
+          </div>
+          <div class="game-tag">$4.99</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Aventura/8.jpg" alt="The Legend of Zelda: Breath of the Wild" />
+          </div>
+          <div class="game-tag">$59.99</div>
+        </div>
+        
+          <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Aventura/9.jpg" alt="Assassin's Creed: Valhalla" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Aventura/10.jpg" alt="Hogwats Legacy" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+          <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Aventura/11.jpg" alt="Horizon: Forbidden West" />
+          </div>
+          <div class="game-tag">$29.99</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos de Aventura/12.jpg" alt="Ori And The Will of the Wisps" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+
+      </div>
+    </div>
+  <button class="carousel-btn right">
+      <span class="arrow arrow-right"></span>
+    </button>
+  </div>
+
+  <div class="carousel-container">
+    <button class="carousel-btn left">
+      <span class="arrow arrow-left"></span>
+    </button>
+    <div class="carousel-viewport">
+      <h2 class="category">Deportes</h2>
+      <div class="carousel">
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos De Deportes/1.jpg" alt="UFC" />
+          </div>
+          <div class="game-tag">$49.99</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos De Deportes/2.jpeg" alt="Rematch" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+
+          <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos De Deportes/3.jpg" alt="Madden NFL 25" />
+          </div>
+          <div class="game-tag">$59.99</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos De Deportes/4.jpg" alt="FIFA 22" />
+          </div>
+          <div class="game-tag">$39.99</div>
+        </div>
+        
+          <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos De Deportes/5.jpeg" alt="FC 24" />
+          </div>
+          <div class="game-tag">$59.99</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos De Deportes/6.jpg" alt="FIFA 20" />
+          </div>
+          <div class="game-tag">$29.99</div>
+        </div>
+        
+          <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos De Deportes/7.jpg" alt="NBA 2K25" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos De Deportes/8.jpg" alt="FIFA 19" />
+          </div>
+          <div class="game-tag">$29.99</div>
+        </div>
+        
+          <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos De Deportes/9.jpg" alt="PES 20" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos De Deportes/10.jpeg" alt="FC 25" />
+          </div>
+          <div class="game-tag">$69.99</div>
+        </div>
+        
+          <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos De Deportes/11.jpeg" alt="Madden NFL 24" />
+          </div>
+          <div class="game-tag">$59.99</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos De Deportes/12.jpg" alt="PES 17" />
+          </div>
+          <div class="game-tag">$19.99</div>
+        </div>
+
+      </div>
+    </div>
+    <button class="carousel-btn right">
+      <span class="arrow arrow-right"></span>
+    </button>
+  </div>
+  
+  <div class="carousel-container">
+    <button class="carousel-btn left">
+      <span class="arrow arrow-left"></span>
+    </button>
+    <div class="carousel-viewport">
+      <h2 class="category">Juegos de Rol</h2>
+      <div class="carousel">
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos De Rol/1.jpg" alt="Bloodborne" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos De Rol/2.jpg" alt="Fallout 3" />
+          </div>
+          <div class="game-tag">$29.99</div>
+        </div>
+
+          <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos De Rol/3.jpg" alt="Outer Wilds: Echoes of the Eye" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos De Rol/4.jpg" alt="Red Dead Redemption 2" />
+          </div>
+          <div class="game-tag">$59.99</div>
+        </div>
+        
+          <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos De Rol/5.jpg" alt="Middle Earth: Shadow of War" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos De Rol/6.jpeg" alt="The Witcher 3: Wild Hunt" />
+          </div>
+          <div class="game-tag">$49.99</div>
+        </div>
+        
+          <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos De Rol/7.jpg" alt="Red Dead Redemption" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos De Rol/8.jpeg" alt="Fallout: New Vegas" />
+          </div>
+          <div class="game-tag">$19.99</div>
+        </div>
+        
+          <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos De Rol/9.jpg" alt="The Elder Scrolls 5: Skyrim" />
+          </div>
+          <div class="game-tag">$29.99</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos De Rol/10.jpeg" alt="Baldur's Gate 3" />
+          </div>
+          <div class="game-tag">$59.99</div>
+        </div>
+        
+        <div class="game-card game-card-paid">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos De Rol/11.jpg" alt="World of Warcraft" />
+          </div>
+          <div class="game-tag">$9.99</div>
+        </div>
+        
+        <div class="game-card game-card-free">
+          <div class="card-image-container">
+            <img src="../images_cards/Juegos De Rol/12.jpg" alt="Middle Earth: Shadow of Mordor" />
+          </div>
+          <div class="game-tag">Jugar</div>
+        </div>
+
+      </div>
+    </div>
+    <button class="carousel-btn right">
+      <span class="arrow arrow-right"></span>
+    </button>
+  </div>
+
+  <footer class="fat-footer">
+    <div class="footer-container">
+
+      <!-- Columna 1 -->
+      <div class="footer-column col-1">
+        <img src="../images/LogoFooter.png" alt="EliteGames" class="logo-footer">
+        <p class="follow">Seguinos:</p>
+        <div class="social-icons">
+          <img src="../images/twitter.png" alt="Twitter">
+          <img src="../images/facebook.png" alt="Facebook">
+          <img src="../images/linkedin.png" alt="LinkedIn">
+          <img src="../images/twitch.png" alt="Twitch">
+          <img src="../images/youtube.png" alt="YouTube">
+          <img src="../images/instagram.png" alt="Instagram">
+        </div>
+      </div>
+
+      <!-- Columna 2 -->
+      <div class="footer-column">
+        <h2>Sobre</h2>
+        <ul>
+          <li>Empresa</li>
+          <li>Mercado Digital</li>
+          <li>Seguridad</li>
+          <li>Contacto</li>
+        </ul>
+      </div>
+
+      <!-- Columna 3 -->
+      <div class="footer-column">
+        <h2>Para Compradores</h2>
+        <ul>
+          <li>Asistencia al Comprador</li>
+          <li>Como Comprar</li>
+          <li>Metodos de Pago</li>
+          <li>Noticias Gaming</li>
+          <li>Gana con Elite Games</li>
+        </ul>
+      </div>
+
+      <!-- Columna 4 -->
+      <div class="footer-column">
+        <h2>Asistencia</h2>
+        <ul>
+          <li>Terminos y condiciones</li>
+          <li>Politica de privacidad y cookies</li>
+          <li>Ley de Servicios Digitales</li>
+          <li>Politica de devoluciones</li>
+        </ul>
+      </div>
+
+      <!-- Columna 5 -->
+      <div class="footer-column col-5">
+        <h2>Prensa</h2>
+        <ul>
+          <li>Elite Games News - gaming y tendencias</li>
+          <li>Elite Games Insights - empresa y tecnologias</li>
+          <li>Comunicados de prensa</li>
+          <li>Colaboracion prensa</li>
+          <li>Web Corporativa</li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="../js/Carrusel.js"></script>
+  <script src="../js/menu.js"></script>
+</body>
+</html>
