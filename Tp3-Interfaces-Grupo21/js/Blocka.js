@@ -17,6 +17,13 @@
     { grid: [4, 2], timeLimitMs: 30 * 1000 },  // Nivel 3: 30s
   ];
 
+  // Escalas deseadas por nivel: 1:1, 3:2, 2:1 (width/height)
+  const LEVEL_ASPECTS = [
+    1.0,    // nivel 1 -> 1:1
+    3/2,    // nivel 2 -> 3:2
+    2.0     // nivel 3 -> 2:1
+  ];
+
   const TIMING = {
     introToSelect: 900,
     thumbStagger: 110,
@@ -84,19 +91,71 @@
     }
     return { x: dx, y: dy, w: dw, h: dh };
   }
-  
-  // ---------- Recursos ----------
-  function getPlayableSources() {
-    let srcs = [
-      '../images_cards/Blocka/DoctorOctopus.jpg',
-      '../images_cards/Blocka/Electro.webp',
-      '../images_cards/Blocka/GreenGoblin.jpeg',
-      '../images_cards/Blocka/Kraven.webp',
-      '../images_cards/Blocka/Mysterio.png',
-      '../images_cards/Blocka/Vulture.jpg',
-    ];
-    return srcs.slice(0, 6);
+
+  // Nueva: versión que fuerza un aspecto (width/height) en lugar del aspecto natural de la imagen
+  function getContainRectWithAspect(img, dstRect, forcedAspect) {
+    const rImg = forcedAspect || (img.width / img.height);
+    const rDst = dstRect.w / dstRect.h;
+    let dw, dh, dx, dy;
+    if (rImg > rDst) {
+      dw = dstRect.w;
+      dh = dw / rImg;
+      dx = dstRect.x;
+      dy = dstRect.y + (dstRect.h - dh)/2;
+    } else {
+      dh = dstRect.h;
+      dw = dh * rImg;
+      dx = dstRect.x + (dstRect.w - dw)/2;
+      dy = dstRect.y;
+    }
+    return { x: dx, y: dy, w: dw, h: dh };
   }
+
+  // Util: shuffle (para crear bancos distintos por nivel)
+  function shuffleArray(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  // Bancos por nivel (puedes personalizarlos aquí)
+  const LEVEL_SOURCES = [
+  // Nivel 1 (posiciones 0..5)
+  [
+    '../images_cards/Blocka/DoctorOctopus1.jpg',
+    '../images_cards/Blocka/Electro1.jpeg',
+    '../images_cards/Blocka/GreenGoblin1.jpeg',
+    '../images_cards/Blocka/Kraven1.jpg',
+    '../images_cards/Blocka/Mysterio1.jpg',
+    '../images_cards/Blocka/Vulture1.jpg'
+  ],
+
+  // Nivel 2 (si quieres descartar la "posición 3" usada en nivel 1
+  [
+    '../images_cards/Blocka/DoctorOctopus2.jpg',
+    '../images_cards/Blocka/Electro2.jpeg',
+    '../images_cards/Blocka/GreenGoblin2.jpeg',
+    '../images_cards/Blocka/Kraven2.jpg',
+    '../images_cards/Blocka/Mysterio2.jpg',
+    '../images_cards/Blocka/Vulture2.jpg'
+  ],
+
+  // Nivel 3
+  [
+    '../images_cards/Blocka/DoctorOctopus3.jpg',
+    '../images_cards/Blocka/Electro3.jpeg',
+    '../images_cards/Blocka/GreenGoblin3.jpeg',
+    '../images_cards/Blocka/Kraven3.jpg',
+    '../images_cards/Blocka/Mysterio3.jpg',
+    '../images_cards/Blocka/Vulture3.jpg'
+  ]
+];
+
+  // Mapa ruta -> Image (se llenará tras la carga)
+  const IMG_MAP = new Map();
 
   //Carga de Varias Imagenes
   function loadImagesAsync(srcs) {
@@ -120,8 +179,7 @@
     });
   }
   
-  const SOURCES = getPlayableSources();
-  let IMGS = [];         // se carga asíncrona
+  let IMGS = [];         // imágenes cargadas (únicas)
   let bgImg = null;      // se carga asíncrona
 
   // Fondo offscreen
@@ -216,7 +274,7 @@
     // Escribir de vuelta
     octx.putImageData(id, 0, 0);
 
-    // Devolvemos el canvas offscreen ya "horneado"
+    // Devolvemos el canvas offscreen
     return off;
   }
 
@@ -226,7 +284,7 @@
     levelIndex: 0,
     pool: [],              // se llena con ...IMGS cuando termine la carga
     currentImg: null,
-    currentImgFiltered: null, // copia horneada con el filtro del nivel
+    currentImgFiltered: null, // copia con el filtro del nivel
     rotations: [],
     playing: false,
     solved: false,
@@ -236,15 +294,17 @@
     // ayudita / piezas bloqueadas
     lockedIndices: [],     // indices ya fijados por la ayudita
     helpUsed: false,
-    // selección
-    selection: {
-      cells: [],           // { img, x,y,w,h, delay }
-      glowIndex: -1,
-      chosenIdx: -1,
-      startedAt: 0,
-      focusing: false,
-      focusStart: 0
-    },
+    // Acumula las posiciones elegidas en niveles previos (p. ej. posición 3)
+    usedPositions: new Set(),
+     // selección
+     selection: {
+       cells: [],           // { img, x,y,w,h, delay }
+       glowIndex: -1,
+       chosenIdx: -1,
+       startedAt: 0,
+       focusing: false,
+       focusStart: 0
+     },
     // botones
     buttons: {
       play:   {x:0,y:0,w:0,h:0, text:'JUGAR'},
@@ -278,28 +338,30 @@
   function goIntro() { STATE.screen = 'intro'; draw(); }
 
   function goSelect() {
-    STATE.screen = 'select';
-    buildSelectionGrid();
-    STATE.selection.glowIndex = -1;
-    STATE.selection.chosenIdx = -1;
-    STATE.selection.startedAt = now();
-    STATE.selection.focusing = false;
-    STATE.selection.focusStart = 0;
-
-    setTimeout(() => runGlowRunner(() => {
-      STATE.selection.chosenIdx = randInt(STATE.selection.cells.length);
-      STATE.selection.focusing = true;
-      STATE.selection.focusStart = now();
-      draw();
-      setTimeout(() => {
-        const img = STATE.selection.cells[STATE.selection.chosenIdx].img;
-        const idxPool = STATE.pool.indexOf(img);
-        if (idxPool >= 0) STATE.pool.splice(idxPool,1);
-        STATE.currentImg = img;
-        setTimeout(() => goLevel(), TIMING.selectToLevel);
-      }, TIMING.focusPause);
-    }), TIMING.introToSelect);
-  }
+     STATE.screen = 'select';
+     buildSelectionGrid();
+     STATE.selection.glowIndex = -1;
+     STATE.selection.chosenIdx = -1;
+     STATE.selection.startedAt = now();
+     STATE.selection.focusing = false;
+     STATE.selection.focusStart = 0;
+ 
+     setTimeout(() => runGlowRunner(() => {
+       STATE.selection.chosenIdx = randInt(STATE.selection.cells.length);
+       STATE.selection.focusing = true;
+       STATE.selection.focusStart = now();
+       draw();
+       setTimeout(() => {
+         const chosenCell = STATE.selection.cells[STATE.selection.chosenIdx];
+         if (!chosenCell) return;
+         // registrar la posición original en usedPositions para niveles posteriores
+         const origPos = chosenCell.origIdx;
+         if (typeof origPos === 'number') STATE.usedPositions.add(origPos);
+         STATE.currentImg = chosenCell.img;
+         setTimeout(() => goLevel(), TIMING.selectToLevel);
+       }, TIMING.focusPause);
+     }), TIMING.introToSelect);
+   }
 
   function goLevel() {
     STATE.screen = 'level';
@@ -328,22 +390,31 @@
   }
 
   // ---------- Selección (carrusel centrado, 200x200) ----------
-  function buildSelectionGrid() {
-    const maxCols = SELECT_GRID[0]; // 6
-    const size = 200;
-    const gap  = 25;
-
-    const imgs = STATE.pool.slice(0, Math.min(maxCols, STATE.pool.length));
-    const count = imgs.length;
-
-    const totalW = count * size + Math.max(0, count - 1) * gap;
-    const startX = Math.max(0, (cssW - totalW) / 2);
-    const startY = (cssH - size) / 2;
-
-    STATE.selection.cells = [];
+     function buildSelectionGrid() {
+     const maxCols = SELECT_GRID[0]; // 6
+     const size = 200;
+     const gap  = 25;
+    // Construimos el banco para el nivel actual respetando usedPositions (posiciones descartadas)
+    const srcs = LEVEL_SOURCES[STATE.levelIndex] || [];
+    const cellsArr = [];
+    for (let i = 0; i < srcs.length && cellsArr.length < maxCols; i++) {
+      if (STATE.usedPositions.has(i)) continue; // descartada por posición usada en niveles previos
+      const img = IMG_MAP.get(srcs[i]);
+      if (!img) continue;
+      cellsArr.push({ img, origIdx: i });
+    }
+    const count = cellsArr.length;
+ 
+     const totalW = count * size + Math.max(0, count - 1) * gap;
+     const startX = Math.max(0, (cssW - totalW) / 2);
+     const startY = (cssH - size) / 2;
+ 
+     STATE.selection.cells = [];
     for (let i = 0; i < count; i++) {
+      const item = cellsArr[i];
       STATE.selection.cells.push({
-        img: imgs[i],
+        img: item.img,
+        origIdx: item.origIdx, // índice relativo al banco del nivel (posición)
         x: startX + i * (size + gap),
         y: startY,
         w: size,
@@ -351,7 +422,7 @@
         delay: i * TIMING.thumbStagger
       });
     }
-  }
+   }
 
   function runGlowRunner(done) {
     const totalThumbs = STATE.selection.cells.length;
@@ -476,7 +547,9 @@
         baseImg = STATE.currentImg;
       }
     }
-    const { x:dx, y:dy, w:dw, h:dh } = getContainRect(baseImg, puzzleRect);
+    // usar aspecto forzado para este nivel
+    const aspect = LEVEL_ASPECTS[STATE.levelIndex] || (baseImg.width / baseImg.height);
+    const { x:dx, y:dy, w:dw, h:dh } = getContainRectWithAspect(baseImg, puzzleRect, aspect);
     if (x<dx || x>dx+dw || y<dy || y>dy+dh) return -1;
 
     const cellW = dw / gx;
@@ -499,7 +572,10 @@
         if (hitButton(x,y,STATE.buttons.next)) { STATE.levelIndex++; goSelect(); }
       } else {
         if (hitButton(x,y,STATE.buttons.again)) {
-          STATE.levelIndex = 0; STATE.pool = [...IMGS]; goIntro();
+          STATE.levelIndex = 0;
+          // reset acumulador de posiciones usadas al reiniciar toda la partida
+          STATE.usedPositions = new Set();
+          goIntro();
         }
       }
       return;
@@ -643,7 +719,7 @@
     // HUD textual
     ctx.save();
     ctx.beginPath();
-    roundRectPath(12, 12, 280, 100, 10);
+    roundRectPath(12, 12, 280, 85, 10);
     ctx.fillStyle = '#FFEB3B';
     ctx.fill();
 
@@ -693,21 +769,23 @@
     const baseImg = STATE.solved ? STATE.currentImg : (STATE.currentImgFiltered || STATE.currentImg);
     const [gx, gy] = LEVELS[STATE.levelIndex].grid;
 
-    const { x:dx, y:dy, w:dw, h:dh } = getContainRect(baseImg, puzzleRect);
+    // usar aspecto forzado para dibujar
+    const aspect = LEVEL_ASPECTS[STATE.levelIndex] || (baseImg.width / baseImg.height);
+    const { x:dx, y:dy, w:dw, h:dh } = getContainRectWithAspect(baseImg, puzzleRect, aspect);
 
     const sw = baseImg.width / gx;
     const sh = baseImg.height / gy;
     const cellW = dw / gx;
     const cellH = dh / gy;
 
-    // SIN ctx.filter (ya está horneado)
+    // SIN ctx.filter
     for (let r=0; r<gy; r++) {
       for (let c=0; c<gx; c++) {
         const idx = r*gx + c;
         const rot = STATE.rotations[idx];
         const sx = c*sw, sy = r*sh;
         const tx = dx + c*cellW, ty = dy + r*cellH;
- 
+
         ctx.save();
         ctx.translate(tx + cellW/2, ty + cellH/2);
         ctx.rotate(rot * Math.PI/2);
@@ -755,7 +833,8 @@
 
     // centrado respecto a la imagen
     const { puzzleRect } = getLayoutRects();
-    const imgRect = getContainRect(STATE.currentImg, puzzleRect);
+    const aspect = LEVEL_ASPECTS[STATE.levelIndex] || (STATE.currentImg.width / STATE.currentImg.height);
+    const imgRect = getContainRectWithAspect(STATE.currentImg, puzzleRect, aspect);
     const cx = imgRect.x + imgRect.w/2;
 
     // título
@@ -800,7 +879,8 @@
     ctx.fillRect(0,0,cssW,cssH);
 
     const { puzzleRect } = getLayoutRects();
-    const imgRect = getContainRect(STATE.currentImg, puzzleRect);
+    const aspect = LEVEL_ASPECTS[STATE.levelIndex] || (STATE.currentImg.width / STATE.currentImg.height);
+    const imgRect = getContainRectWithAspect(STATE.currentImg, puzzleRect, aspect);
     const cx = imgRect.x + imgRect.w/2;
 
     ctx.textAlign = 'center';
@@ -846,22 +926,27 @@
 
   // ---------- Inicio (carga asíncrona con onload) ----------
   (async function boot() {
-    try {
+     try {
+      // cargar todas las rutas únicas de LEVEL_SOURCES
+      const uniqueSrcs = Array.from(new Set(LEVEL_SOURCES.flat()));
       const [imgs, bg] = await Promise.all([
-        loadImagesAsync(SOURCES),
+        loadImagesAsync(uniqueSrcs),
         loadImageAsync(BG_SRC)
       ]);
+      // mapear rutas a Image
+      uniqueSrcs.forEach((src, i) => IMG_MAP.set(src, imgs[i]));
       IMGS = imgs;
       bgImg = bg;
-      STATE.pool = [...IMGS];
-      bgDirty = true;
-      bgReady = false;
-      goIntro();
-      draw();
-    } catch (err) {
-      console.error('Error cargando recursos:', err);
-      goIntro();
-      draw();
-    }
-  })();
+      // Estado inicial: no hay posiciones usadas
+      STATE.usedPositions = new Set();
+       bgDirty = true;
+       bgReady = false;
+       goIntro();
+       draw();
+     } catch (err) {
+       console.error('Error cargando recursos:', err);
+       goIntro();
+       draw();
+     }
+   })();
 })();
