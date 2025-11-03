@@ -12,9 +12,9 @@ let lastClickedChip = null;
 let isMouseDown = false;
 let board = null;
 
-const BG_TABLE = "../images/fondoMadera.png";
-const BG_BOARD = "../images/boardPegSolitaire.png";
-const CELL_IMAGE = "../images/CellImage.png";
+const BG_TABLE = "../images_cards/PegSolitaire/fondoMadera.png";
+const BG_BOARD = "../images_cards/PegSolitaire/boardPegSolitaire.png";
+const CELL_IMAGE = "../images_cards/PegSolitaire/CellImage.png";
 const CHIPS_IMAGES = [
     "../images_cards/PegSolitaire/Chip1.png",
     "../images_cards/PegSolitaire/Chip2.png",
@@ -485,4 +485,5 @@ function updateHintsForChip(chip) {
   } else {
     hints.hide();
   }
+
 }
