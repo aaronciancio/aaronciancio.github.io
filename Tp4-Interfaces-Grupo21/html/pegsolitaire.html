@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peg Solitaire</title>
+    <link rel="stylesheet" href="../css/pegsolitaire.css">
+    <link rel="stylesheet" href="../css/header_footer.css">
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="main-header">
+    <!-- Lado izquierdo -->
+    <div class="header-left">
+      <!-- Menú Hamburguesa -->
+      <div class="menu-icon">
+        <img src="../images/Menu.png" alt="Menú">
+      </div>
+      <!-- Logo -->
+      <img src="../images/LogoHeader.png" alt="EliteGames" class="logo-header">
+
+    </div>
+
+    <!-- Buscador -->
+    <div class="search-bar">
+      <img src="../images/Lupa.png" alt="Buscar" class="search-icon">
+      <input type="text" placeholder="Buscar">
+    </div>
+
+    <!-- Lado derecho -->
+    <div class="header-right">
+        <!-- Carrito -->
+      <div class="cart-icon">
+        <img src="../images/Carrito 3.png" alt="Carrito">
+      </div>
+      <!-- Usuario -->
+      <div class="user-icon">
+        <img src="../images/Usuario.png" alt="Usuario">
+      </div>
+    </div>
+  </header>
+  
+<!-- ===== MENÚ IZQUIERDO ===== -->
+<nav id="sideMenu" class="side-menu left">
+  <div class="menu-section">
+    <h2>General</h2>
+    <ul>
+      <li>
+        <a href="loading.html">
+        <img src="../images/Home.png" alt="Home">
+        <span>Inicio</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="menu-section">
+    <h2>Categorías</h2>
+    <ul>
+      <li><img src="../images/Estrategia.png" alt="Estrategia"><span>Estrategia</span></li>
+      <li><img src="../images/Accion.png" alt="Acción"><span>Acción</span></li>
+      <li><img src="../images/Terror.png" alt="Terror"><span>Terror</span></li>
+      <li><img src="../images/Aventura.png" alt="Aventura"><span>Aventura</span></li>
+      <li><img src="../images/Deportes.png" alt="Deportes"><span>Deportes</span></li>
+      <li><img src="../images/Rol.png" alt="Juegos de Rol"><span>Juegos de Rol</span></li>
+      <li><img src="../images/Fantasia.png" alt="Fantasía"><span>Fantasía</span></li>
+      <li><img src="../images/Carreras.png" alt="Carreras"><span>Carreras</span></li>
+      <li><img src="../images/Sigilo.png" alt="Sigilo"><span>Sigilo</span></li>
+      <li><img src="../images/Peleas.png" alt="Peleas"><span>Peleas</span></li>
+      <li><img src="../images/Rompecabezas.png" alt="Rompecabezas"><span>Rompecabezas</span></li>
+      <li><img src="../images/Supervivencia.png" alt="Supervivencia"><span>Supervivencia</span></li>
+      <li><img src="../images/Cooperativo.png" alt="Cooperativo"><span>Cooperativo</span></li>
+      <li><img src="../images/Plataformas.png" alt="Plataformas"><span>Plataformas</span></li>
+      <li><img src="../images/FPS.png" alt="FPS"><span>FPS</span></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== MENÚ DERECHO ===== -->
+<nav id="userMenu" class="side-menu right">
+  <div class="menu-section">
+    <ul>
+      <li>
+        <img src="../images/Perfil.png" alt="Mi Perfil">
+        <span>Mi Perfil</span>
+      </li>
+      <li>
+        <img src="../images/Configuracion.png" alt="Configuración">
+        <span>Configuración</span>
+      </li>
+      <li>
+        <a href="register.html">
+          <img src="../images/CerrarSesion.png" alt="Cerrar Sesión">
+          <span>Cerrar Sesión</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Fondo oscuro al abrir menú -->
+<div id="overlay"></div>
+
+    <h1 class="game-title">Peg Solitaire</h1>
+    <div class="main-game">
+      <!-- Imagen principal -->
+      <canvas width="1632" height="800" id="pegsolitaire"></canvas>
+      <!-- Barra inferior --> 
+      <div class="bar">
+          <div class="left-buttons">
+              <button class="up"><img class= "btn-icons" src="../images/Thumb Up.png" alt="Thumb Down">4.5M</button>
+              <button class="down"><img class= "btn-icons" src="../images/Thumb Down.png" alt="Thumb Down"> </button>
+              <button class="heart"><img class= "btn-icons" src="../images/Corazon.png" alt="Corazon"></button>
+          </div>
+          <div class="right-buttons">
+              <button class="btn-friends" id="friends-id"><img class= "friends" src="../images/Friends.png">Invita a tus amigos</button>
+              <button class="btn-play" id="play"><span>JUGAR</span></button>
+          </div> 
+      </div>
+
+      <!-- Galería --> 
+      <div class="gallery"> 
+        <img src="../images/Peg1.png" alt="Miniatura 1"> 
+        <img src="../images/Peg2.jpeg" alt="Miniatura 2"> 
+        <img src="../images/Peg3.jpg" alt="Miniatura 3"> 
+        <img src="../images/Peg4.png" alt="Miniatura 4"> 
+        <img src="../images/Peg5.png" alt="Miniatura 5"> 
+        <img src="../images/Peg6.png" alt="Miniatura 6"> 
+        <img src="../images/Peg7.jpg" alt="Miniatura 7"> 
+      </div> 
+
+    <div class="game-instructions">
+      <div class="breadcrumb">Home &nbsp;&gt;&gt;&nbsp; Estrategia &nbsp;&gt;&gt;&nbsp; Peg Solitaire</div>
+
+      <h2 class="game-title">PEG SOLITAIRE</h2>
+
+      <p class="game-description">¿Te animás a resolver este clásico rompecabezas?</p>
+
+      <p>
+        El Peg Solitaire es un juego de lógica para un solo jugador donde el objetivo es 
+        eliminar todas las fichas del tablero hasta que quede solo una. Para hacerlo, deberás 
+        saltar una ficha sobre otra (en horizontal o vertical) hacia un espacio vacío, retirando 
+        la ficha que fue saltada.
+      </p>
+
+      <p>
+        Su mecánica es sencilla, pero lograr la solución requiere estrategia y planificación. 
+        ¿Podrás terminar con una única ficha en el centro del tablero?
+      </p>
+
+      <h3>Características del juego</h3>
+      <ul>
+        <li>Juego de lógica y estrategia para un solo jugador.</li>
+        <li>Objetivo: dejar solo una ficha en el tablero.</li>
+        <li>Mecánica simple: saltar fichas en horizontal o vertical hacia un espacio vacío.</li>
+        <li>Diferentes tableros y niveles de dificultad según la variante.</li>
+        <li>Desafiante: requiere concentración, paciencia y planificación para lograr la solución perfecta.</li>
+      </ul>
+
+      <h3>Instrucciones</h3>
+      <ol>
+        <li>Selecciona una ficha que tenga un espacio vacío al lado (horizontal o vertical).</li>
+        <li>Haz clic en la ficha y luego en la casilla vacía para moverla.</li>
+        <li>La ficha saltada desaparecerá automáticamente.</li>
+        <li>Repite los movimientos hasta quedarte con una sola ficha en el tablero.</li>
+        <li>¡El reto final es terminar con la última ficha en el centro!</li>
+      </ol>
+
+      <h3>Controles</h3>
+      <ol>
+        <li>Click izquierdo sobre una ficha para seleccionarla.</li>
+        <li>Click izquierdo sobre el hueco vacío válido para moverla.</li>
+      </ol>
+
+      <div class="peg-redes">
+        <p>
+        Estoy jugando al Peg Solitaire  ¿Te animás a ganarme? Probalo acá
+        </p>
+        <div class="peg-redes-icons">
+          <img src="../images/twitter.png" alt="">
+          <img src="../images/facebook.png" alt="">
+          <img src="../images/linkedin.png" alt="">
+          <img src="../images/instagram.png" alt="">
+          <img src="../images/mail.png" alt="">
+          <img src="../images/telegram.png" alt="">
+        </div>
+
+      </div>
+      
+    </div>
+
+    <div class="peg-last-section">
+      <div class="comments-section">
+        <h1>Comentarios</h1>
+        <div class="comments-container">
+          <!--Comentario de Usuario-->
+          <div class="user-comment">
+              <div>
+                <div class="user-icon">
+                  <img src="../images/Usuario.png" alt="Usuario">
+                </div>
+                <h3>Tú</h3>
+              </div>
+              <div class="input-comment">
+                <input type="email" id="email" placeholder="Escribe tu comentario">
+                <img src="../images/Enviar.png" alt="Boton Enviar" class="send-icon">
+              </div>
+          </div>
+
+          <hr>
+
+          <!--Columna de comentarios-->
+          <div class="others-comments">
+            <div class="comment">
+              <div class="comment-header">
+                <div class="left">
+                  <div class="user-icon">
+                    <img src="../images/Usuario.png" alt="Usuario">
+                  </div>
+                  <h3>Peg_Fan#23</h3>
+                </div>
+
+                <div class="right">
+                  <p>500</p>
+                  <img src="../images/Thumb Up.png" alt="Pulgar Arriba">
+                </div>
+              </div>
+              <p>Me encanto este juego. Super recomendado !!!</p>
+            </div>
+
+            <div class="comment">
+              <div class="comment-header">
+                <div class="left">
+                  <div class="user-icon">
+                    <img src="../images/Usuario.png" alt="Usuario">
+                  </div>
+                  <h3>RPG_Master</h3>
+                </div>
+
+                <div class="right">
+                  <p>70</p>
+                  <img src="../images/Thumb Up.png" alt="Pulgar Arriba">
+                </div>
+              </div>
+              <p>Esta bien para pasar el rato</p>
+            </div>
+
+            <div class="comment">
+              <div class="comment-header">
+                <div class="left">
+                  <div class="user-icon">
+                    <img src="../images/Usuario.png" alt="Usuario">
+                  </div>
+                  <h3>Fer_MiniJuegos</h3>
+                </div>
+
+                <div class="right">
+                  <p>200</p>
+                  <img src="../images/Thumb Up.png" alt="Pulgar Arriba">
+                </div>
+              </div>
+              <p>Este juego me recuerda a mi infancia, que nostalgia !!</p>
+            </div>
+
+            <div class="comment">
+              <div class="comment-header">
+                <div class="left">
+                  <div class="user-icon">
+                    <img src="../images/Usuario.png" alt="Usuario">
+                  </div>
+                  <h3>Rama_Games</h3>
+                </div>
+
+                <div class="right">
+                  <p>20</p>
+                  <img src="../images/Thumb Up.png" alt="Pulgar Arriba">
+                </div>
+              </div>
+              <p>La verdad no lo recomiendo, hay mejores juegos</p>
+            </div>
+
+            <div class="comment">
+              <div class="comment-header">
+                <div class="left">
+                  <div class="user-icon">
+                    <img src="../images/Usuario.png" alt="Usuario">
+                  </div>
+                  <h3>XxXJuanXxX</h3>
+                </div>
+
+                <div class="right">
+                  <p>450</p>
+                  <img src="../images/Thumb Up.png" alt="Pulgar Arriba">
+                </div>
+              </div>
+              <p>NO PUEDO PARAR DE JUGARLO</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="peg-cards">
+        <h1>Porque Jugaste: Peg Solitaire</h1>
+        <div class="peg-cards-container">
+          <div class="peg-cards-columns">
+            
+            <div class="game-card game-card-paid">
+              <div class="card-image-container">
+                <img src=".././images_cards/Juegos de Estrategia/7.webp" alt="Juego" />
+              </div>
+              <div class="game-tag">$10.00</div>
+            </div>
+
+            <div class="game-card game-card-free">
+              <div class="card-image-container">
+                <img src=".././images_cards/Juegos de Estrategia/8.avif" alt="Juego" />
+              </div>
+              <div class="game-tag">Jugar</div>
+            </div>
+
+            <div class="game-card game-card-paid">
+              <div class="card-image-container">
+                <img src=".././images_cards/Juegos de Estrategia/2.jpg" alt="Juego" />
+              </div>
+              <div class="game-tag">$10.00</div>
+            </div>
+
+            <div class="game-card game-card-free">
+              <div class="card-image-container">
+                <img src=".././images_cards/Juegos de Estrategia/3.jpg" alt="Juego" />
+              </div>
+              <div class="game-tag">Jugar</div>
+            </div>
+          </div>
+          <div class="peg-cards-columns">
+            
+            <div class="game-card game-card-paid">
+              <div class="card-image-container">
+                <img src=".././images_cards/Juegos de Estrategia/5.jpg" alt="Juego" />
+              </div>
+              <div class="game-tag">$10.00</div>
+            </div>
+
+            <div class="game-card game-card-free">
+              <div class="card-image-container">
+                <img src=".././images_cards/Juegos de Estrategia/6.jpg" alt="Juego" />
+              </div>
+              <div class="game-tag">Jugar</div>
+            </div>
+
+            <div class="game-card game-card-paid">
+              <div class="card-image-container">
+                <img src=".././images_cards/Juegos de Estrategia/9.avif" alt="Juego" />
+              </div>
+              <div class="game-tag">$10.00</div>
+            </div>
+
+            <div class="game-card game-card-paid">
+              <div class="card-image-container">
+                <img src=".././images_cards/Juegos de Estrategia/4.jpg" alt="Juego" />
+              </div>
+              <div class="game-tag">$10.00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+    
+  <footer class="fat-footer">
+    <div class="footer-container">
+
+      <!-- Columna 1 -->
+      <div class="footer-column col-1">
+        <img src="../images/LogoFooter.png" alt="EliteGames" class="logo-footer">
+        <p class="follow">Seguinos:</p>
+        <div class="social-icons">
+          <img src="../images/twitter.png" alt="Twitter">
+          <img src="../images/facebook.png" alt="Facebook">
+          <img src="../images/linkedin.png" alt="LinkedIn">
+          <img src="../images/twitch.png" alt="Twitch">
+          <img src="../images/youtube.png" alt="YouTube">
+          <img src="../images/instagram.png" alt="Instagram">
+        </div>
+      </div>
+
+      <!-- Columna 2 -->
+      <div class="footer-column">
+        <h2>Sobre</h2>
+        <ul>
+          <li>Empresa</li>
+          <li>Mercado Digital</li>
+          <li>Seguridad</li>
+          <li>Contacto</li>
+        </ul>
+      </div>
+
+      <!-- Columna 3 -->
+      <div class="footer-column">
+        <h2>Para Compradores</h2>
+        <ul>
+          <li>Asistencia al Comprador</li>
+          <li>Como Comprar</li>
+          <li>Metodos de Pago</li>
+          <li>Noticias Gaming</li>
+          <li>Gana con Elite Games</li>
+        </ul>
+      </div>
+
+      <!-- Columna 4 -->
+      <div class="footer-column">
+        <h2>Asistencia</h2>
+        <ul>
+          <li>Terminos y condiciones</li>
+          <li>Politica de privacidad y cookies</li>
+          <li>Ley de Servicios Digitales</li>
+          <li>Politica de devoluciones</li>
+        </ul>
+      </div>
+
+      <!-- Columna 5 -->
+      <div class="footer-column col-5">
+        <h2>Prensa</h2>
+        <ul>
+          <li>Elite Games News - gaming y tendencias</li>
+          <li>Elite Games Insights - empresa y tecnologias</li>
+          <li>Comunicados de prensa</li>
+          <li>Colaboracion prensa</li>
+          <li>Web Corporativa</li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="../js/menu.js"></script>
+  <script src="../js/pegsolitaire/Cell.js"></script>
+  <script src="../js/pegsolitaire/Chip.js"></script>
+  <script src="../js/pegsolitaire/Board.js"></script>
+  <script src="../js/pegsolitaire/Timer.js"></script>
+  <script src="../js/pegsolitaire/Button.js"></script>
+  <script src="../js/pegsolitaire/HintAnimator.js"></script>
+  <script src="../js/pegsolitaire/EndGameScreen.js"></script>
+  <script src="../js/pegsolitaire/GameController.js"></script>
+</body>
+</html>
