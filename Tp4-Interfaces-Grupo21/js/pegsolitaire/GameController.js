@@ -41,7 +41,7 @@ let cellImg;
 let chipImgIndex = 0;
 
 // Timer / game state
-const TIME_LIMIT = 500; // segundos (5 minutos) - ajustar según necesario
+const TIME_LIMIT = 300; // segundos (5 minutos) - ajustar según necesario
 let timer = null;
 let gameActive = false;
 let allChipsDrawn = false;
@@ -487,3 +487,4 @@ function updateHintsForChip(chip) {
   }
 
 }
+
