@@ -365,9 +365,17 @@ function onMouseUp(e) {
 
         drawAllChips();
 
-        //Condicion de Victoria
+        // ===== Condición de victoria "clásica": 1 ficha y debe quedar en el CENTRO =====
         if (chips.length === 1) {
-            endGame("¡Solo queda una ficha!", true);
+        const center = Math.floor(board.size / 2);  
+        const only = chips[0];
+        const isCenter = only.cellRow === center && only.cellCol === center;
+
+        if (isCenter) {
+            endGame("¡Victoria perfecta! La ficha quedó en el centro.", true);
+        } else {
+            endGame("Quedó 1 ficha, pero NO en el centro. Fin del juego", false);
+        }
         } else if (!board.checkAnyMoves() && chips.length > 1) {
             endGame("No hay más movimientos. Fin del juego.", false);
         }
@@ -486,5 +494,6 @@ function updateHintsForChip(chip) {
   }
 
 }
+
 
 
