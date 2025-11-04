@@ -368,8 +368,7 @@ function onMouseUp(e) {
         //Condicion de Victoria
         if (chips.length === 1) {
             endGame("¡Solo queda una ficha!", true);
-            return;
-        } else if (!board.checkAnyMoves()) {
+        } else if (!board.checkAnyMoves() && chips.length > 1) {
             endGame("No hay más movimientos. Fin del juego.", false);
         }
     } else {
@@ -487,4 +486,5 @@ function updateHintsForChip(chip) {
   }
 
 }
+
 
