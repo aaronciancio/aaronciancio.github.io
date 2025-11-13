@@ -8,6 +8,7 @@ class Board{
         this.fill = fill;
         this.img = img;
         this.cells = [];
+        this.paths = [];
     }
 
     setPosition(x, y) {
@@ -89,6 +90,18 @@ class Board{
         return false;
     }
 
+    isInPath(dstRow, dstCol) {
+        if (!this.isValidCell(dstRow, dstCol)) return false;
+        for (const p of this.paths) {
+            let validRow = p.row;
+            let validCol = p.col;
+            if (validRow === dstRow && validCol === dstCol) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     //Obtiene la celda del medio
     getMiddleCell(srcRow, srcCol, dstRow, dstCol) {
         return { row: (srcRow + dstRow) / 2, col: (srcCol + dstCol) / 2 };
@@ -103,25 +116,72 @@ class Board{
     }
 
     //Metodo utilizado movimientos validos para una ficha y retorna un arrar con los movimientos validos
+    // ACTUALIZACIÓN DEFENSA:
+    // Eliminamos variable out. Creamos variable global paths que contiene los distintos caminos validos que encuentre
+    // Agregamos variable path que contiene el camino actual y le agregamos la ficha y celda inicial
     computeValidDestinationsForChip(chip) {
+        this.paths = [];
         const r = chip.cellRow;
         const c = chip.cellCol;
         const cands = [
-            { r: r - 2, c },  // arriba
-            { r: r + 2, c },  // abajo
-            { r, c: c - 2 },  // izquierda
-            { r, c: c + 2 }   // derecha
+            { r: r - 2, c, dir: 'up' },  // arriba
+            { r: r + 2, c, dir: 'down' },  // abajo
+            { r, c: c - 2, dir: 'left' },  // izquierda
+            { r, c: c + 2, dir: 'right' }   // derecha
         ];
-        const out = [];
         for (const d of cands) {
             if (this && this.isValidCell(d.r, d.c) && this.isValidMove(r, c, d.r, d.c)) {
-                const tl = this.getCellTopLeft(d.r, d.c);
-                const cx = tl.x + this.cellSize / 2;
-                const cy = tl.y + this.cellSize / 2;
-                out.push({ row: d.r, col: d.c, cx, cy });
+                const path = new Path();
+                let middle = this.getMiddleCell(r, c, d.r, d.c);
+                path.addChip(this.getChipAt(middle.row, middle.col));
+                path.addCell({ cellRow: r, cellCol: c });
+                this.constructPath(path, d.dir, { cellRow: d.r, cellCol: d.c });
             }
         }
-        return out;   
+        return this.paths;
+    }
+
+    // ACTUALIZACIÓN DEFENSA:
+    // Metodo recursivo para construir los caminos de las fichas
+    // Se asegura de no ir en la direccion de la que viene
+    // Actualiza el path con las fichas que se come y las celdas que pisa
+    // Después de la recursión, remueve la ficha y celda que se agregó, por si hubiese más candidatos válidos
+    // Si ningún candidato es válido, considera que el camino llegó al final y guarda una copia en la variable global paths
+    constructPath(path, direction, cell) {
+        const r = cell.cellRow;
+        const c = cell.cellCol;
+        let cont = 0;
+        const cands = [];
+        if (!(direction === 'up')) {
+            cands.push({ r: r + 2, c: c, dir: 'down' });
+        }
+        if (!(direction === 'down')) {
+            cands.push({ r: r - 2, c: c, dir: 'up' });
+        }
+        if (!(direction === 'left')) {
+            cands.push({ r: r, c: c + 2, dir: 'right' });
+        }
+        if (!(direction === 'right')) {
+            cands.push({ r: r, c: c - 2, dir: 'left' });
+        }
+        for (const d of cands) {
+            if (this && this.isValidCell(d.r, d.c) && this.isValidMove(r, c, d.r, d.c) && !path.contains(d)) {
+                cont++;
+                let middle = this.getMiddleCell(r, c, d.r, d.c);
+                path.addChip(this.getChipAt(middle.row, middle.col));
+                path.addCell({ cellRow: r, cellCol: c });
+                this.constructPath(path, d.dir, { cellRow: d.r, cellCol: d.c });
+                path.removeCell();
+                path.removeChip();
+            }
+        }
+        if (cont === 0) {
+            let copy = path.getCopy();
+            let pathCopy = new Path();
+            pathCopy.setDestination(r, c);
+            pathCopy.setChips(copy);
+            this.paths.push(pathCopy);
+        }
     }
 
     // Encuentra la celda válida más cercana al punto (cx,cy). Devuelve row,col o null
