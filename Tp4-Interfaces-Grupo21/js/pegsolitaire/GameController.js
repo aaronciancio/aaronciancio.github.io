@@ -11,6 +11,7 @@ let chips = [];
 let lastClickedChip = null;
 let isMouseDown = false;
 let board = null;
+let validPaths = [];
 
 const BG_TABLE = "../images_cards/PegSolitaire/fondoMadera.png";
 const BG_BOARD = "../images_cards/PegSolitaire/boardPegSolitaire.png";
@@ -251,6 +252,9 @@ canvas.addEventListener("mousemove", onMouseMove, false);
 // - Detecta la ficha clicada (findClickedFicha) y la marca como seleccionada.
 // - Guarda la posición original para poder revertir si el movimiento resulta inválido.
 // - Reordena el array 'chips' para dibujar la ficha seleccionada encima.
+
+// ACTUALIZACIÓN DEFENSA:
+// Si clickea una ficha, calcula los caminos válidos para esa ficha y los guarda enn la variable global validPaths
 function onMouseDown(e) {
     
     if (RETRY_BTN.isInButton(e.offsetX, e.offsetY)) {
@@ -285,6 +289,7 @@ function onMouseDown(e) {
     if (clickedChip != null) {
         clickedChip.setClicked(true);
         lastClickedChip = clickedChip;
+        validPaths = board.computeValidDestinationsForChip(clickedChip);
 
         lastClickedChip.originalX = lastClickedChip.x;
         lastClickedChip.originalY = lastClickedChip.y;
@@ -330,6 +335,11 @@ function setLast() {
 // - Si no es válido: revertimos a la posición original guardada en originalX/originalY.
 // - Tras un movimiento válido comprobamos si hay movimientos posibles (checkAnyMoves).
 
+// ACTUALIZACIÓN DEFENSA:
+// Si la posición en la que se suelta la ficha es válida (está dentro de alguna celda)
+// chequea si esa celda es la celda destino de alguno de los caminos almacenados en validPaths
+// Si coincide con alguno, elimina todas las fichas almacenadas de ese camino y mueve la ficha
+// Después, vacía validPaths para futuros movimientos
 function onMouseUp(e) {
     if (!gameActive) return;
     isMouseDown = false;
@@ -341,14 +351,18 @@ function onMouseUp(e) {
 
     const dest = board.findClosestCell(dropX, dropY);
 
-    if (dest && board.isValidMove(lastClickedChip.cellRow, lastClickedChip.cellCol, dest.row, dest.col)) {
-        const middle = board.getMiddleCell(lastClickedChip.cellRow, lastClickedChip.cellCol, dest.row, dest.col);
-        const middleChip = board.getChipAt(middle.row, middle.col);
-        if (middleChip) {
-            const idx = chips.indexOf(middleChip);
-            if (idx > -1) chips.splice(idx, 1);
+    if (dest && board.isInPath(dest.row, dest.col)) {
+        for (const p of validPaths) {
+            let validRow = p.row;
+            let validCol = p.col;
+            if (validRow === dest.row && validCol === dest.col) {
+                let chipsToDelete = p.getCopy();
+                for (const c of chipsToDelete) {
+                    const idx = chips.indexOf(c);
+                    if (idx > -1) chips.splice(idx, 1);
+                }
+            }
         }
-
         const tl = board.getCellTopLeft(dest.row, dest.col);
         const offset = (board.cellSize - CHIP_SIZE) / 2;
         lastClickedChip.x = tl.x + offset;
@@ -358,6 +372,7 @@ function onMouseUp(e) {
         lastClickedChip.setClicked(false);
 
         lastClickedChip = null;
+        validPaths = [];
 
         if (hints){
             hints.hide();
@@ -379,6 +394,7 @@ function onMouseUp(e) {
         } else if (!board.checkAnyMoves() && chips.length > 1) {
             endGame("No hay más movimientos. Fin del juego.", false);
         }
+        return;
     } else {
         lastClickedChip.x = lastClickedChip.originalX;
         lastClickedChip.y = lastClickedChip.originalY;
