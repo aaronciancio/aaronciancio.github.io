@@ -1,0 +1,455 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:700&display=swap');
+
+/* Fuente base */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #0E1116;
+  height: 100vh;
+  position: relative;
+}
+
+/* Header */
+.main-header {
+  width: 100%;
+  height: 60px;
+  background-color: #222831;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* Lado izquierdo */
+.header-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-icon img {
+  width: 37.5px;
+  height: 25px;
+  object-fit: contain;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.logo-header{ 
+  width: 154px;
+  height: 135px;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; /* Centra horizontalmente */ 
+  justify-content: center; /* Alinea verticalmente dentro del espacio */
+  line-height: 1.1; 
+} 
+
+/* Buscador centrado */
+.search-bar {
+  width: 35%;
+  height: 40px;
+  background-color: #4A5562;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  gap: 10px;
+}
+
+.search-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.search-bar input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.search-bar input::placeholder {
+  color: #AAAAAA;
+  font-weight: 600;
+}
+
+/* Lado derecho */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.cart-icon {
+  width: 50px;
+  height: 50px;
+  background-color: #4A5562;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.cart-icon img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  
+}
+
+.user-icon {
+  width: 50px;
+  height: 50px;
+  background-color: #FFFFFF;
+  border-radius: 50%;       /* círculo perfecto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.user-icon img {
+  width: 31px;
+  height: 31px;
+  object-fit: contain;
+}
+
+.user-circle {
+  width: 35px;
+  height: 35px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-circle img {
+  width: 31px;
+  height: 31px;
+  object-fit: contain;
+}
+
+/* MENU IZQUIERDO */
+.side-menu.left {
+  position: absolute;
+  top: var(--header-h);
+  left: 0;
+  width: 250px;
+  background: #222831;
+  z-index: 2000;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 10px rgba(0,0,0,.4);
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden; /* evita que se “salga” en hover */
+}
+
+.side-menu.left.active { transform: translateX(0); }
+
+/* Secciones */
+.menu-section { width: 100%; padding-bottom: 10px; }
+
+.menu-section h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 10px 0 8px 20px;
+}
+
+/* Lista vertical */
+.menu-section ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ítems */
+.menu-section li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #FFFFFF;
+  cursor: pointer;
+  border-radius: 6px;
+  transition:
+    background 0.25s ease-in-out,
+    font-size 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+}
+
+/* Íconos */
+.menu-section li img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Enlaces dentro del menú*/
+.menu-section li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  transition:
+    background 0.25s ease-in-out,
+    font-size 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+}
+
+/* Hover del enlace */
+.menu-section li a:hover {
+  background: #2f3742;
+  font-size: 20px;
+  color: #EEEEEE;
+  border-radius: 6px;
+}
+
+/* Hover del ítem (si no es enlace) */
+.menu-section li:hover {
+  background: #2f3742;
+  font-size: 20px;
+}
+
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+  display: none;
+  z-index: 1900;
+}
+#overlay.active { display: block; }
+
+/* ===== MENÚ DERECHO ===== */
+.side-menu.right {
+  position: fixed;
+  top: var(--header-h);
+  right: 0;
+  width: 250px;
+  background: #222831;
+  z-index: 2000;
+  transform: translateX(100%);   /* oculto hacia la derecha */
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 10px rgba(0,0,0,.4);
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;              /* evita que el hover se “salga” */
+}
+
+.side-menu.right.active {
+  transform: translateX(0);
+}
+
+/* Sección */
+.side-menu.right .menu-section {
+  width: 100%;
+  display: block;
+  padding-bottom: 10px;
+}
+
+/* Lista */
+.side-menu.right ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ítems */
+.side-menu.right li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #FFFFFF;
+  cursor: pointer;
+  border-radius: 6px;
+  transition:
+    background 0.25s ease-in-out,
+    font-size 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+}
+
+/* Íconos */
+.side-menu.right li img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Hover: mismo efecto que el izquierdo */
+.side-menu.right li:hover {
+  background: #2f3742;
+  font-size: 20px;
+  color: #EEEEEE;
+}
+
+/* ====== Footer general ====== */
+.logo-footer{
+  font-family:'Poppins', sans-serif;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+  line-height: 1.1;
+  margin-bottom: 25px;
+} 
+
+.fat-footer {
+  height: 400px;
+  background-color: #222831;
+  color: #ffffff;
+  padding: 50px;
+  box-sizing: border-box;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 30px;
+}
+
+/* ====== Columna 1 ====== */
+.col-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.follow {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.social-icons img {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+/* ====== Columnas 2 a 5 ====== */
+.footer-column {
+  font-family: 'Merriweather';
+}
+
+.footer-column h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 440px) {
+
+  .fat-footer {
+    height: auto;
+  }
+
+  .footer-container {
+    flex-direction: column;
+  }
+
+  /* Header */
+  .main-header {
+    height: 50px;
+    padding: 0 5px;
+  }
+
+  /* Lado izquierdo */
+
+  .menu-icon img {
+    width: 30px;
+    height: 20px;
+  }
+
+  .logo-header{ 
+    width: 103px;
+    height: 90px;
+  }
+
+  /* Buscador centrado */
+
+  .search-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .search-bar {
+    width: 42.5%;
+    height: 35px;
+  }
+
+  /* Lado derecho */
+  .header-right {
+    gap: 5px;
+  }
+
+  .cart-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .cart-icon img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+  }
+
+  .user-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .user-icon img {
+    width: 25px;
+    height: 25px;
+    object-fit:cover;
+  }
+}

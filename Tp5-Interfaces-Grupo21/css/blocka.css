@@ -1,0 +1,543 @@
+/* BLOCKA */
+
+.game-title {
+  color:#FFFFFF;
+  font-family: 'Poppins', bold;
+  font-size: 32px;
+  margin-left: 5%;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.main-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* === Canvas del juego Blocka === */
+#blocka {
+  aspect-ratio: 1632 / 800;    /* Asegura proporción del canvas */
+  display: block;
+  border-radius: 15px 15px 0px 0px; /* Combina con la barra inferior */
+  box-sizing: border-box;
+  object-fit: cover;
+  margin: 0 auto;              /* Centra el canvas horizontalmente */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Sutil glow */
+  border: none;
+  z-index: 10; /* fondo */
+}
+
+.bar { 
+  width: 85%;
+  height: 70px; 
+  background-color: #2E3742;
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;  
+  border-radius: 0 0 15px 15px;
+} 
+
+.left-buttons { 
+  width: 50%;
+  display: flex; 
+  gap: 20px; 
+  align-items: center; 
+}
+
+.up {
+  background-color: #888888;
+  font-family: 'Merriweathers';
+  color: #FFFFFF; 
+  text-align: center;
+  width: 130px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px 0px 0px 10px;
+  border: none;
+  margin-left: 25px;
+  cursor: pointer;
+}
+
+.up img {
+  margin-right: 10px;
+}
+
+.down {
+  background-color: #888888;  
+  width: 90px;
+  height: 55px;
+  border-radius: 0px 10px 10px 0px;
+  border: none;
+  margin-left: -10px;
+  cursor: pointer;
+}
+
+.heart{ 
+  background-color: #888888; 
+  width: 60px;
+  height: 55px; 
+  border-radius: 10px;
+  border: none;
+  margin-left: -10px;
+  cursor: pointer;
+}
+
+
+.btn-icons {
+  width: 35px;
+  height: 35px;
+}
+
+.right-buttons { 
+  display: flex; 
+  gap: 20px; 
+  align-items: center; 
+} 
+
+.btn-friends {
+  width: 100%;
+  height: 55px;
+  background-color: #888888; 
+  color: #FFFFFF;
+  font-family: 'Poppins', semibold; 
+  border: none; 
+  border-radius: 10px; 
+  cursor: pointer; 
+  display: flex; 
+  align-items: center; 
+  font-size: 16px;
+  margin-right: -10px; 
+}
+
+.friends {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  margin-left: 20px;
+}
+
+.gallery {
+  width: 85%;
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  gap: 50px; 
+  margin-top: 30px;
+  margin-bottom: 30px; 
+}
+
+.gallery img { 
+  width: 9%;
+  height: 150px; 
+  object-fit: cover; 
+  border-radius: 10px; 
+}
+
+.game-instructions {
+  width: 85%;
+  height: 850px;
+  font-family: 'Merriweather';
+  font-weight: 400;
+  background-color: #2E3742;
+  border-radius: 25px;
+  margin-bottom: 30px;
+  color:#FFFFFF;
+}
+
+.game-instructions h3 {
+  font-family: 'Poppins';
+}
+
+.game-instructions h2 {
+  font-family: 'Poppins';
+  font-size: 24px;
+}
+
+.game-instructions > * {
+  margin-left: 30px;
+}
+
+.breadcrumb {
+  margin-top: 30px;
+}
+
+.peg-redes {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.peg-redes p {
+  font-size: 18px;
+}
+
+.peg-redes-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.peg-redes-icons img{
+  width: 25px;
+  height: 25px;
+}
+
+/*Comentarios*/
+
+.peg-last-section {
+  display: flex;
+  width: 85%;
+}
+
+.comments-section {
+  width: 50%;
+}
+
+.comments-section h1 {
+  font-family: 'Poppins', bold;
+  font-size: 32px;
+  color: #FFFFFF;
+  margin-bottom: -3px;
+  margin-left: 25px;
+}
+
+hr{
+  margin: 40px 0 40px 0;
+}
+
+.comments-container{
+  background-color: #2E3742;
+  padding: 40px;
+  border-radius: 25px;
+  margin-bottom: 40px;
+  height: 1035px;
+  display: flex;
+  flex-direction: column;
+}
+
+.others-comments {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 824px;
+}
+
+.user-comment div h3{
+  margin: 5px;
+  font-size: 16px;
+}
+
+.user-comment div{
+  color: #FFFFFF;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.input-comment{
+  position: relative;
+}
+
+.input-comment input{
+  width: 100%;
+  height: 40px;
+  background-color: #F7F7F7;
+  border-radius: 10px;
+}
+
+.send-icon{
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.comment p{
+  font-family: 'Merryweather';
+  color: #FFFFFF;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.left{
+  color: #FFFFFF;
+  display: flex;
+}
+
+.left h3{
+  margin: 5px;
+  font-size: 16px;
+}
+
+.right{
+  color: #FFFFFF;
+  display: flex;
+}
+
+.right p{
+  margin-right: 5px;
+}
+
+.right img{
+  height: 35px;
+  width: 35px;
+}
+
+.peg-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  margin-left: 100px;
+}
+
+.peg-cards h1 {
+  font-family: 'Poppins', bold;
+  font-size: 32px;
+  color: #FFFFFF;
+  margin-left: -50px;
+}
+
+.peg-cards-container {
+  display: flex;
+  align-items: center;
+}
+
+.peg-cards-columns {
+  width: 50%;
+  height: 1035px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+/* ---------- Animaciones Peg Solitaire ---------- */
+@keyframes bumpUp {
+  0%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-6px); }
+}
+
+@keyframes shakeDown {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  30% { transform: translateY(3px) rotate(2deg); }
+  60% { transform: translateY(0) rotate(0); }
+  85% { transform: translateY(2px) rotate(-2deg); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.15); }
+  50% { transform: scale(0.98); }
+  75% { transform: scale(1.12); }
+}
+
+/* ---------- Base común (suave) ---------- */
+.up, .down, .heart {
+  background-color: #888888;
+  color: #FFFFFF;
+  border: none;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color .25s ease, box-shadow .25s ease, transform .15s ease;
+}
+
+.up { 
+  width: 130px; 
+  border-radius: 10px 0 0 10px; 
+  font-family: 'Merriweather', serif;
+  margin-left: 25px;
+}
+.up img { margin-right: 10px; }
+
+.down { 
+  width: 90px; 
+  border-radius: 0 10px 10px 0; 
+  margin-left: -10px; 
+}
+
+.heart {
+  width: 60px; 
+  border-radius: 10px; 
+  margin-left: -10px; 
+}
+
+/* Iconos */
+.btn-icons { 
+  width: 35px; 
+  height: 35px; 
+  transition: transform .25s ease, filter .25s ease;
+}
+
+/* ---------- Efectos específicos ---------- */
+
+/* UP: bump hacia arriba + naranja coral (#FF7043) */
+.up:hover {
+  background-color: #FF7043;
+  box-shadow: 0 0 14px rgba(255, 112, 67, 0.55);
+}
+.up:hover .btn-icons { 
+  animation: bumpUp .35s ease; 
+  filter: brightness(1.15);
+}
+.up:hover .count { animation: bumpUp .35s ease; }
+
+/* DOWN: mini shake hacia abajo + rojo oscuro (#8C1007) */
+.down:hover {
+  background-color: #8C1007;
+  box-shadow: 0 0 14px rgba(140, 16, 7, 0.55);
+}
+.down:hover .btn-icons { 
+  animation: shakeDown .45s ease; 
+  filter: brightness(1.1);
+}
+
+/* HEART: latido continuo mientras hay hover + rojo intenso (#D32F2F) */
+.heart:hover {
+  background-color: #D32F2F;
+  box-shadow: 0 0 14px rgba(211, 47, 47, 0.55);
+}
+.heart:hover .btn-icons { 
+  animation: heartbeat .9s ease-in-out infinite; 
+  filter: brightness(1.1);
+}
+
+/* Feedback al click */
+.up:active, .down:active, .heart:active { transform: scale(0.98); }
+
+/* Accesibilidad foco teclado */
+.up:focus-visible, .down:focus-visible, .heart:focus-visible {
+  outline: 2px solid #FFEB3B;
+  outline-offset: 2px;
+}
+
+.right-buttons { 
+  display: flex; 
+  gap: 20px; 
+  align-items: center; 
+} 
+
+.btn-friends {
+  width: 100%;
+  height: 55px;
+  background-color: #888888; 
+  color: #FFFFFF;
+  font-family: 'Poppins', semibold; 
+  border: none; 
+  border-radius: 10px; 
+  cursor: pointer; 
+  display: flex; 
+  align-items: center; 
+  font-size: 16px;
+  margin-right: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.btn-friends:hover {
+  background-color: #B71C1C; /* acento rojo definido en Figma */
+  box-shadow: 0 0 15px rgba(183, 28, 28, 0.7); /* glow rojo */
+  transform: scale(1.05);
+}
+
+.friends {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  margin-left: 0;
+}
+
+@keyframes bounceText {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+/* Cards */
+
+.game-card {
+  position: relative;
+  width: 70%;
+  height: 284px;
+  display: flex;
+  flex: 0 0 220px;
+  flex-direction: column;
+  align-items: flex-end;
+  cursor: pointer;
+}
+
+.card-image-container {
+  width: 100%;
+  aspect-ratio: 284 / 187;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px 10px 0 10px;
+}
+
+.card-image-container img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px 10px 0 10px;
+  border: 2px solid #FFFFFF;
+  box-sizing: border-box;
+}
+
+.game-tag {
+  right: 0;
+  top: 155px;
+  width: 45%;
+  height: 29px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  border-radius: 0 0 10px 10px;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.game-card-paid .game-tag {
+  background: #8C1007;
+  color: #FFFFFF;
+}
+
+.game-card-free .game-tag {
+  background: #FFEB3B;
+  color: #0E1116;
+}
+
+.game-card-paid:hover .card-image-container {
+  box-shadow: 0 0 20px #B71C1C;
+}
+.game-card-paid:hover .card-image-container img {
+  border: 2px solid #8C1007;
+}
+.game-card-paid:hover .game-tag {
+  box-shadow: 0 0 20px #B71C1C;
+  background-color: #B71C1C;
+}
+
+.game-card-free:hover .card-image-container {
+  box-shadow: 0 0 20px #FFA726;
+}
+.game-card-free:hover .card-image-container img {
+  border: 2px solid #FFA726;
+}
+.game-card-free:hover .game-tag {
+  box-shadow: 0 0 20px #FFA726;
+}
+
