@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Bird</title>
+    <link rel="stylesheet" href="../css/header_footer.css">
+    <link rel="stylesheet" href="../css/flappybird.css">
+</head>
+<body>
+    <header class="main-header">
+    <!-- Lado izquierdo -->
+    <div class="header-left">
+      <!-- Menú Hamburguesa -->
+      <div class="menu-icon">
+        <img src="../images/Menu.png" alt="Menú">
+      </div>
+      <!-- Logo -->
+      <img src="../images/LogoHeader.png" alt="EliteGames" class="logo-header">
+
+    </div>
+
+    <!-- Buscador -->
+    <div class="search-bar">
+      <img src="../images/Lupa.png" alt="Buscar" class="search-icon">
+      <input type="text" placeholder="Buscar">
+    </div>
+
+    <!-- Lado derecho -->
+    <div class="header-right">
+        <!-- Carrito -->
+      <div class="cart-icon">
+        <img src="../images/Carrito 3.png" alt="Carrito">
+      </div>
+      <!-- Usuario -->
+      <div class="user-icon">
+        <img src="../images/Usuario.png" alt="Usuario">
+      </div>
+    </div>
+  </header>
+  
+<!-- ===== MENÚ IZQUIERDO ===== -->
+<nav id="sideMenu" class="side-menu left">
+  <div class="menu-section">
+    <h2>General</h2>
+    <ul>
+      <li>
+        <a href="loading.html">
+        <img src="../images/Home.png" alt="Home">
+        <span>Inicio</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="menu-section">
+    <h2>Categorías</h2>
+    <ul>
+      <li><img src="../images/Estrategia.png" alt="Estrategia"><span>Estrategia</span></li>
+      <li><img src="../images/Accion.png" alt="Acción"><span>Acción</span></li>
+      <li><img src="../images/Terror.png" alt="Terror"><span>Terror</span></li>
+      <li><img src="../images/Aventura.png" alt="Aventura"><span>Aventura</span></li>
+      <li><img src="../images/Deportes.png" alt="Deportes"><span>Deportes</span></li>
+      <li><img src="../images/Rol.png" alt="Juegos de Rol"><span>Juegos de Rol</span></li>
+      <li><img src="../images/Fantasia.png" alt="Fantasía"><span>Fantasía</span></li>
+      <li><img src="../images/Carreras.png" alt="Carreras"><span>Carreras</span></li>
+      <li><img src="../images/Sigilo.png" alt="Sigilo"><span>Sigilo</span></li>
+      <li><img src="../images/Peleas.png" alt="Peleas"><span>Peleas</span></li>
+      <li><img src="../images/Rompecabezas.png" alt="Rompecabezas"><span>Rompecabezas</span></li>
+      <li><img src="../images/Supervivencia.png" alt="Supervivencia"><span>Supervivencia</span></li>
+      <li><img src="../images/Cooperativo.png" alt="Cooperativo"><span>Cooperativo</span></li>
+      <li><img src="../images/Plataformas.png" alt="Plataformas"><span>Plataformas</span></li>
+      <li><img src="../images/FPS.png" alt="FPS"><span>FPS</span></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== MENÚ DERECHO ===== -->
+<nav id="userMenu" class="side-menu right">
+  <div class="menu-section">
+    <ul>
+      <li>
+        <img src="../images/Perfil.png" alt="Mi Perfil">
+        <span>Mi Perfil</span>
+      </li>
+      <li>
+        <img src="../images/Configuracion.png" alt="Configuración">
+        <span>Configuración</span>
+      </li>
+      <li>
+        <a href="register.html">
+          <img src="../images/CerrarSesion.png" alt="Cerrar Sesión">
+          <span>Cerrar Sesión</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Fondo oscuro al abrir menú -->
+<div id="overlay"></div>
+
+    <h1 class="game-title">Flappy Bird</h1>
+    <div class="main-game">
+      <!-- Fondo del juego -->
+      <div class="game-background layer1"></div>
+      <div class="game-background layer2"></div>
+      <div class="game-background layer3"></div>
+      <div class="game-background layer4"></div>
+      <div class="game-background layer5"></div>
+      <div class="game-background layer6"></div>
+      
+      <!-- Canvas -->
+      <canvas width="1632" height="800" id="flappybird"></canvas>
+      <!-- Barra inferior --> 
+      <div class="bar">
+          <div class="left-buttons">
+              <button class="up"><img class= "btn-icons" src="../images/Thumb Up.png" alt="Thumb Down">2.7M</button>
+              <button class="down"><img class= "btn-icons" src="../images/Thumb Down.png" alt="Thumb Down"> </button>
+              <button class="heart"><img class= "btn-icons" src="../images/Corazon.png" alt="Corazon"></button>
+          </div>
+          <div class="right-buttons">
+              <button class="btn-friends" id="friends-id"><img class= "friends" src="../images/Friends.png">Invita a tus amigos</button>
+              <button class="btn-play" id="play"><span>JUGAR</span></button>
+          </div> 
+      </div>
+      
+      <!-- Galería --> 
+      <div class="gallery"> 
+        <img src="../images_cards/Flappy Bird/1.png" alt="Fondo 1">
+        <img src="../images_cards/Flappy Bird/2.png" alt="Fondo 2">
+        <img src="../images_cards/Flappy Bird/3.png" alt="Fondo 3" class="video-thumb">
+        <img src="../images_cards/Flappy Bird/videoflappy.png" alt="Video">
+        <img src="../images_cards/Flappy Bird/4.png" alt="Fondo 4">
+        <img src="../images_cards/Flappy Bird/5.jpg" alt="Fondo 5" class="video-thumb">
+        <img src="../images_cards/Flappy Bird/6.jpg" alt="Fondo 6">
+      </div>
+
+    <div class="game-instructions">
+      <div class="breadcrumb">Home &nbsp;&gt;&gt;&nbsp; Arcade &nbsp;&gt;&gt;&nbsp; Flappy Bird</div>
+
+      <h2 class="game-title">FLAPPY BIRD</h2>
+
+      <p class="game-description">¿Podés mantener al pájaro en el aire y esquivar todos los obstáculos?</p>
+
+      <p>
+        Flappy Bird es un juego arcade de habilidad donde controlás a un pequeño pájaro que avanza
+        automáticamente hacia la derecha. El objetivo es atravesar la mayor cantidad posible de pares de
+        tubos sin chocar, manteniendo el vuelo mediante pequeños impulsos hacia arriba.
+      </p>
+
+      <p>
+        Su mecánica es extremadamente simple, pero dominarla requiere precisión, buen timing y práctica.
+        Cada hueco superado suma un punto, y el desafío es batir tu propio récord.
+      </p>
+
+      <h3>Características del juego</h3>
+      <ul>
+        <li>Juego arcade de habilidad y reflejos.</li>
+        <li>Objetivo: pasar entre la mayor cantidad posible de obstáculos sin chocar.</li>
+        <li>Mecánica simple: el pájaro cae por gravedad y sube con pequeños impulsos.</li>
+        <li>Partidas rápidas y puntuación basada en la cantidad de tubos superados.</li>
+        <li>Ideal para competir por el mejor puntaje.</li>
+      </ul>
+
+      <h3>Instrucciones</h3>
+      <ol>
+        <li>Iniciá la partida.</li>
+        <li>El pájaro cae constantemente por efecto de la gravedad.</li>
+        <li>Presioná la barra espaciadora, clic del mouse o flecha arriba para darle un impulso hacia arriba.</li>
+        <li>Esquivá los tubos superiores e inferiores mientras avanzás.</li>
+        <li>Sumás un punto por cada par de tubos atravesados sin chocar.</li>
+      </ol>
+
+      <h3>Controles</h3>
+      <ul>
+        <li> Presioná la barra espaciadora, clic del mouse o flecha arriba para impulsar al pájaro.</li>
+      </ul>
+
+      <div class="peg-redes">
+        <p>
+        Estoy jugando al Flappy Bird  ¿Te animás a ganarme? Probalo acá
+        </p>
+        <div class="peg-redes-icons">
+          <img src="../images/twitter.png" alt="">
+          <img src="../images/facebook.png" alt="">
+          <img src="../images/linkedin.png" alt="">
+          <img src="../images/instagram.png" alt="">
+          <img src="../images/mail.png" alt="">
+          <img src="../images/telegram.png" alt="">
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="peg-last-section">
+      <div class="comments-section">
+        <h1>Comentarios</h1>
+        <div class="comments-container">
+          <!--Comentario de Usuario-->
+          <div class="user-comment">
+              <div>
+                <div class="user-icon">
+                  <img src="../images/Usuario.png" alt="Usuario">
+                </div>
+                <h3>Tú</h3>
+              </div>
+              <div class="input-comment">
+                <input type="email" id="email" placeholder="Escribe tu comentario">
+                <img src="../images/Enviar.png" alt="Boton Enviar" class="send-icon">
+              </div>
+          </div>
+
+          <hr>
+
+          <!--Columna de comentarios-->
+          <div class="others-comments">
+            <div class="comment">
+              <div class="comment-header">
+                <div class="left">
+                  <div class="user-icon">
+                    <img src="../images/Usuario.png" alt="Usuario">
+                  </div>
+                  <h3>Dundden</h3>
+                </div>
+
+                <div class="right">
+                  <p>300</p>
+                  <img src="../images/Thumb Up.png" alt="Pulgar Arriba">
+                </div>
+              </div>
+              <p>Que pajaro mas odioso, siempre se choca con los tubos !!!</p>
+            </div>
+
+            <div class="comment">
+              <div class="comment-header">
+                <div class="left">
+                  <div class="user-icon">
+                    <img src="../images/Usuario.png" alt="Usuario">
+                  </div>
+                  <h3>Vegetta78347</h3>
+                </div>
+
+                <div class="right">
+                  <p>45</p>
+                  <img src="../images/Thumb Up.png" alt="Pulgar Arriba">
+                </div>
+              </div>
+              <p>Mi record es de 63 tubos</p>
+            </div>
+
+            <div class="comment">
+              <div class="comment-header">
+                <div class="left">
+                  <div class="user-icon">
+                    <img src="../images/Usuario.png" alt="Usuario">
+                  </div>
+                  <h3>Amanda_Games</h3>
+                </div>
+
+                <div class="right">
+                  <p>350</p>
+                  <img src="../images/Thumb Up.png" alt="Pulgar Arriba">
+                </div>
+              </div>
+              <p>La curva de dificultad sube demasiado rapido, es increible!</p>
+            </div>
+
+            <div class="comment">
+              <div class="comment-header">
+                <div class="left">
+                  <div class="user-icon">
+                    <img src="../images/Usuario.png" alt="Usuario">
+                  </div>
+                  <h3>xXGonXx</h3>
+                </div>
+
+                <div class="right">
+                  <p>90</p>
+                  <img src="../images/Thumb Up.png" alt="Pulgar Arriba">
+                </div>
+              </div>
+              <p>No paro de jugarlo, ayuda...</p>
+            </div>
+
+            <div class="comment">
+              <div class="comment-header">
+                <div class="left">
+                  <div class="user-icon">
+                    <img src="../images/Usuario.png" alt="Usuario">
+                  </div>
+                  <h3>BernardoX_X</h3>
+                </div>
+
+                <div class="right">
+                  <p>550</p>
+                  <img src="../images/Thumb Up.png" alt="Pulgar Arriba">
+                </div>
+              </div>
+              <p>El Peg solitaire es mejor, corta.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="peg-cards">
+        <h1>Porque Jugaste: Flappy Bird</h1>
+        <div class="peg-cards-container">
+          <div class="peg-cards-columns">
+            
+            <div class="game-card game-card-free">
+              <div class="card-image-container">
+                <img src=".././images_cards/Juegos de Aventura/1.jpg" alt="Juego" />
+              </div>
+              <div class="game-tag">Jugar</div>
+            </div>
+
+            <div class="game-card game-card-free">
+              <div class="card-image-container">
+                <img src=".././images_cards/Juegos de Aventura/2.jpg" alt="Juego" />
+              </div>
+              <div class="game-tag">Jugar</div>
+            </div>
+
+            <div class="game-card game-card-paid">
+              <div class="card-image-container">
+                <img src=".././images_cards/Juegos de Aventura/3.jpg" alt="Juego" />
+              </div>
+              <div class="game-tag">$15.00</div>
+            </div>
+
+            <div class="game-card game-card-free">
+              <div class="card-image-container">
+                <img src=".././images_cards/Juegos de Aventura/4.jpg" alt="Juego" />
+              </div>
+              <div class="game-tag">Jugar</div>
+            </div>
+          </div>
+          <div class="peg-cards-columns">
+            
+            <div class="game-card game-card-paid">
+              <div class="card-image-container">
+                <img src=".././images_cards/Juegos de Aventura/5.jpg" alt="Juego" />
+              </div>
+              <div class="game-tag">$17.00</div>
+            </div>
+
+            <div class="game-card game-card-paid">
+              <div class="card-image-container">
+                <img src=".././images_cards/Juegos de Aventura/6.jpg" alt="Juego" />
+              </div>
+              <div class="game-tag">$20.00</div>
+            </div>
+
+            <div class="game-card game-card-paid">
+              <div class="card-image-container">
+                <img src=".././images_cards/Juegos de Aventura/7.jpg" alt="Juego" />
+              </div>
+              <div class="game-tag">$17.50</div>
+            </div>
+
+            <div class="game-card game-card-free">
+              <div class="card-image-container">
+                <img src=".././images_cards/Juegos de Aventura/8.jpg" alt="Juego" />
+              </div>
+              <div class="game-tag">Jugar</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+    
+  <footer class="fat-footer">
+    <div class="footer-container">
+
+      <!-- Columna 1 -->
+      <div class="footer-column col-1">
+        <img src="../images/LogoFooter.png" alt="EliteGames" class="logo-footer">
+        <p class="follow">Seguinos:</p>
+        <div class="social-icons">
+          <img src="../images/twitter.png" alt="Twitter">
+          <img src="../images/facebook.png" alt="Facebook">
+          <img src="../images/linkedin.png" alt="LinkedIn">
+          <img src="../images/twitch.png" alt="Twitch">
+          <img src="../images/youtube.png" alt="YouTube">
+          <img src="../images/instagram.png" alt="Instagram">
+        </div>
+      </div>
+
+      <!-- Columna 2 -->
+      <div class="footer-column">
+        <h2>Sobre</h2>
+        <ul>
+          <li>Empresa</li>
+          <li>Mercado Digital</li>
+          <li>Seguridad</li>
+          <li>Contacto</li>
+        </ul>
+      </div>
+
+      <!-- Columna 3 -->
+      <div class="footer-column">
+        <h2>Para Compradores</h2>
+        <ul>
+          <li>Asistencia al Comprador</li>
+          <li>Como Comprar</li>
+          <li>Metodos de Pago</li>
+          <li>Noticias Gaming</li>
+          <li>Gana con Elite Games</li>
+        </ul>
+      </div>
+
+      <!-- Columna 4 -->
+      <div class="footer-column">
+        <h2>Asistencia</h2>
+        <ul>
+          <li>Terminos y condiciones</li>
+          <li>Politica de privacidad y cookies</li>
+          <li>Ley de Servicios Digitales</li>
+          <li>Politica de devoluciones</li>
+        </ul>
+      </div>
+
+      <!-- Columna 5 -->
+      <div class="footer-column col-5">
+        <h2>Prensa</h2>
+        <ul>
+          <li>Elite Games News - gaming y tendencias</li>
+          <li>Elite Games Insights - empresa y tecnologias</li>
+          <li>Comunicados de prensa</li>
+          <li>Colaboracion prensa</li>
+          <li>Web Corporativa</li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="../js/menu.js"></script>
+  <script src="../js/flappybird/Bird.js"></script>
+  <script src="../js/flappybird/Score.js"></script>
+  <script src="../js/flappybird/Pipe.js"></script>
+  <script src="../js/flappybird/Coin.js"></script>
+  <script src="../js/flappybird/Flappy.js"></script>
+</body>
+</html>
