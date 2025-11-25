@@ -27,7 +27,6 @@
   const PIPE_WIDTH = 90;
   const PIPE_MIN_TOP = 80;
   const PIPE_MIN_BOTTOM = 110;
-  const COIN_SAFE_MARGIN = 64;
 
   // ==========================
   //        FUNCIONES ÚTILES
@@ -334,3 +333,4 @@
 
   requestAnimationFrame(loop);
 })();
+
